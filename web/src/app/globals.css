@@ -162,10 +162,44 @@
 }
 
 .marquee-track { width: max-content; }
-.marquee-inner { animation: marquee 30s linear infinite; }
+.marquee-inner { animation: marquee 60s linear infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-inner { animation: none; }
+}
+
+/* ─── Logo ──────────────────────────────────────────────────────────── */
+/* pathLength=1 on the ring lets one keyframe drive both mark sizes. */
+.logo-ring--draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: logo-draw 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+@keyframes logo-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Leaves pivot at the stem junction, so they open rather than slide. */
+.logo-leaf-l,
+.logo-leaf-r {
+  transform-box: fill-box;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.logo-leaf-l { transform-origin: 100% 100%; }
+.logo-leaf-r { transform-origin: 0% 100%; }
+
+.logo-link:hover .logo-leaf-l { transform: rotate(-9deg); }
+.logo-link:hover .logo-leaf-r { transform: rotate(9deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-ring--draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .logo-leaf-l,
+  .logo-leaf-r { transition: none; }
+  .logo-link:hover .logo-leaf-l,
+  .logo-link:hover .logo-leaf-r { transform: none; }
 }
 
 /* ─── Editorial type utilities ─────────────────────────────────────── */

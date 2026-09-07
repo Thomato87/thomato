@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "@/components/theme/theme-toggle";
+import { LogoWordmark } from "@/components/ui/logo";
 import { brand } from "@/data/brand";
 
 export function Navigation() {
@@ -31,9 +32,10 @@ export function Navigation() {
         {/* Logo */}
         <Link
           href="/"
-          className="eyebrow tracking-widest text-foreground hover:text-brand transition-colors"
+          aria-label={`${brand.name} – Startseite`}
+          className="logo-link text-foreground"
         >
-          {brand.name}
+          <LogoWordmark className="h-[26px] w-auto" />
         </Link>
 
         {/* Desktop nav */}

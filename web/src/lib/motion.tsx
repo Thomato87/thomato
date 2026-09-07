@@ -37,13 +37,16 @@ interface FadeInProps {
   delay?: number;
   className?: string;
   once?: boolean;
+  /** Optional anchor target — lets a FadeIn double as a scroll destination. */
+  id?: string;
 }
 
-export function FadeIn({ children, delay = 0, className, once = true }: FadeInProps) {
+export function FadeIn({ children, delay = 0, className, once = true, id }: FadeInProps) {
   const reduced = useReducedMotion();
 
   return (
     <motion.div
+      id={id}
       initial="hidden"
       whileInView="visible"
       viewport={{ once, margin: "-60px" }}

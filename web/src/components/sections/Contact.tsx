@@ -12,7 +12,9 @@ import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -185,10 +187,17 @@ export function Contact() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {brand.serviceOptions.map((opt) => (
-                              <SelectItem key={opt} value={opt}>
-                                {opt}
-                              </SelectItem>
+                            {brand.serviceGroups.map((group) => (
+                              <SelectGroup key={group.label}>
+                                <SelectLabel className="eyebrow text-brand">
+                                  {group.label}
+                                </SelectLabel>
+                                {group.options.map((opt) => (
+                                  <SelectItem key={opt} value={opt}>
+                                    {opt}
+                                  </SelectItem>
+                                ))}
+                              </SelectGroup>
                             ))}
                           </SelectContent>
                         </Select>
@@ -207,7 +216,7 @@ export function Contact() {
                       <FormLabel className="eyebrow text-xs">Nachricht *</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Beschreiben Sie kurz Ihren Bedarf – Veranstaltungsart, Datum, erwartete Teilnehmerzahl…"
+                          placeholder="Beschreiben Sie kurz Ihren Bedarf – bei Einsätzen Art, Datum und erwartete Teilnehmerzahl, bei Software den Ablauf, der Ihnen heute Mühe macht…"
                           className="min-h-32 resize-none"
                           {...field}
                         />

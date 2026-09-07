@@ -420,22 +420,9 @@ export function Hero() {
 
       {/* ── Text content ── */}
       <div className="relative z-10 flex flex-1 flex-col px-4 pt-28 pb-8 sm:px-6 sm:pt-32 sm:pb-10 md:px-12 lg:pl-28 lg:pr-16 lg:pt-36">
-        {/* Eyebrow */}
-        <motion.div
-          className="flex items-center gap-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-        >
-          <span className="eyebrow text-brand/70">
-            {brand.hero.eyebrow}
-          </span>
-          <div className="h-px w-8 bg-brand/40" />
-        </motion.div>
-
         {/* Headline */}
         <h1
-          className="display-xl mt-10 flex-1 content-center"
+          className="display-xl flex-1 content-center"
           style={{ color: darkMode ? "#eef5ff" : "#050f1e" }}
         >
           {brand.hero.headline.map((line, i) => (
@@ -466,7 +453,7 @@ export function Hero() {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-start">
             <p
               className="max-w-sm text-sm leading-relaxed"
-              style={{ color: darkMode ? "rgba(170,205,255,.58)" : "rgba(0,20,60,.55)" }}
+              style={{ color: darkMode ? "rgba(196,222,255,.82)" : "rgba(0,20,60,.72)" }}
             >
               {brand.hero.body}
             </p>
@@ -478,7 +465,7 @@ export function Hero() {
                 asChild
                 variant="ghost"
                 size="lg"
-                style={{ color: darkMode ? "rgba(170,205,255,.62)" : "rgba(0,20,60,.5)" }}
+                style={{ color: darkMode ? "rgba(196,222,255,.86)" : "rgba(0,20,60,.75)" }}
               >
                 <Link href="#leistungen" className="flex items-center gap-2">
                   {brand.hero.cta.secondary}

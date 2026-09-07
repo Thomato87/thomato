@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-368 -102 448 128" width="896" height="256" role="img" aria-label="thomato">
+  <title>thomato</title>
+  <text class="word" x="0" y="0" text-anchor="end" fill="#e9e9ed" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif" font-size="100" font-weight="500" letter-spacing="-4">thomat</text>
+  <circle class="ring" cx="27" cy="-27" r="21.5" fill="none" stroke="#e9e9ed" stroke-width="11" stroke-linecap="round" transform="rotate(-90 27 -27)"></circle>
+  <path class="stem" d="M27 -50.7 L27 -65.2" stroke="#1684f7" stroke-width="11" stroke-linecap="round"></path>
+  <path class="leafL" d="M25.7 -62.6 L8.6 -71.8" stroke="#1684f7" stroke-width="11" stroke-linecap="round"></path>
+  <path class="leafR" d="M28.3 -62.6 L45.4 -71.8" stroke="#1684f7" stroke-width="11" stroke-linecap="round"></path>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 1 44 63" width="440" height="630" role="img" aria-label="Thomato">
+  <title>Thomato</title>
+  <g>
+    <circle class="ring" cx="32" cy="41" r="18" fill="none" stroke="#161826" stroke-width="5" stroke-linecap="round" transform="rotate(-90 32 41)"></circle>
+    <path class="stem" d="M32 23 L32 12" stroke="#004ec4" stroke-width="5" stroke-linecap="round"></path>
+    <path class="leafL" d="M31 14 L18 7" stroke="#004ec4" stroke-width="5" stroke-linecap="round"></path>
+    <path class="leafR" d="M33 14 L46 7" stroke="#004ec4" stroke-width="5" stroke-linecap="round"></path></g>
+</svg>

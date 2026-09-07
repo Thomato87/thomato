@@ -18,8 +18,10 @@ export async function POST(request: Request) {
     const data = contactSchema.parse(body);
 
     await resend.emails.send({
-      from: "RescueFlex <noreply@rescueflex.ch>",
-      to: "info@rescueflex.ch",
+      // NOTE: thomato.ch must be verified in Resend (DNS records) before this
+      // sender works. Until then the form will fail — see README / handover.
+      from: "Thomato <noreply@thomato.ch>",
+      to: "info@thomato.ch",
       replyTo: data.email,
       subject: `Neue Anfrage von ${data.name}${data.service ? ` – ${data.service}` : ""}`,
       text: [

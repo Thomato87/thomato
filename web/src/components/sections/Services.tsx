@@ -5,9 +5,9 @@ import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FadeIn } from "@/lib/motion";
-import { brand, type Offer } from "@/data/brand";
+import { brand, type Offer, type Pillar } from "@/data/brand";
 
-function ServiceRow({ offer, index }: { offer: Offer; index: number }) {
+function ServiceRow({ offer }: { offer: Offer }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -30,9 +30,9 @@ function ServiceRow({ offer, index }: { offer: Offer; index: number }) {
 
           {/* Title block */}
           <div className="flex flex-1 flex-col gap-0.5 md:flex-row md:items-baseline md:gap-4">
-            <h3 className="text-xl font-light tracking-tight sm:text-2xl md:text-3xl">
+            <h4 className="text-xl font-light tracking-tight sm:text-2xl md:text-3xl">
               {offer.title}
-            </h3>
+            </h4>
             <span className="text-sm text-muted-foreground md:text-base">
               {offer.subtitle}
             </span>
@@ -89,6 +89,31 @@ function ServiceRow({ offer, index }: { offer: Offer; index: number }) {
   );
 }
 
+/**
+ * Pillar heading — the divider that tells the two halves of the business apart.
+ * Heavier rule and far more space above than below, so it reads as a new chapter
+ * rather than as another service row.
+ */
+function PillarHeading({ pillar, index }: { pillar: Pillar; index: number }) {
+  return (
+    <FadeIn
+      id={pillar.id}
+      className={`scroll-mt-20 border-t border-foreground/30 px-4 pb-6 sm:px-6 sm:pb-8 md:px-12 lg:px-24 ${
+        index === 0 ? "pt-10 sm:pt-14" : "pt-20 sm:pt-32"
+      }`}
+    >
+      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-16">
+        <h3 className="text-3xl font-light tracking-tight sm:text-4xl md:text-5xl">
+          {pillar.label}
+        </h3>
+        <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:text-right">
+          {pillar.description}
+        </p>
+      </div>
+    </FadeIn>
+  );
+}
+
 export function Services() {
   return (
     <section id="leistungen" className="py-14 sm:py-28">
@@ -99,16 +124,20 @@ export function Services() {
           <h2 className="display-lg max-w-lg">Was wir für Sie leisten.</h2>
         </div>
         <p className="hidden max-w-xs text-right text-sm leading-relaxed text-muted-foreground md:block">
-          Vier Kernleistungen – basierend auf echter Einsatzerfahrung aus dem Schweizer Rettungsdienst.
+          Zwei Bereiche, ein Fundament – jahrelange Praxis im Schweizer
+          Rettungsdienst.
         </p>
       </FadeIn>
 
-      {/* Stacked rows — full bleed, no container */}
-      <div>
-        {brand.offers.map((offer, i) => (
-          <ServiceRow key={offer.id} offer={offer} index={i} />
-        ))}
-      </div>
+      {/* Two pillars — full bleed rows, no container */}
+      {brand.pillars.map((pillar, p) => (
+        <div key={pillar.id}>
+          <PillarHeading pillar={pillar} index={p} />
+          {pillar.offers.map((offer) => (
+            <ServiceRow key={`${pillar.id}-${offer.id}`} offer={offer} />
+          ))}
+        </div>
+      ))}
     </section>
   );
 }

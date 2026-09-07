@@ -3,6 +3,9 @@ import Link from "next/link";
 import { brand } from "@/data/brand";
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
+import { LogoWordmark } from "@/components/ui/logo";
+import { openConsentSettings } from "@/lib/consent";
 import { useTheme } from "next-themes";
 
 // ── Interactive contour lines canvas ─────────────────────────────────────
@@ -152,6 +155,8 @@ export function Footer() {
   const year = new Date().getFullYear();
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const lockupRef = useRef<HTMLDivElement>(null);
+  const lockupInView = useInView(lockupRef, { once: true, margin: "-80px" });
 
   useEffect(() => {
     setMounted(true);
@@ -170,9 +175,8 @@ export function Footer() {
           {/* Brand column */}
           <div className="md:col-span-1">
             <div className="flex flex-col gap-4">
-              <div className="inline-flex items-center gap-2 w-fit">
-                <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                <span className="eyebrow tracking-widest text-foreground">{brand.name}</span>
+              <div ref={lockupRef} className="w-fit text-foreground">
+                <LogoWordmark className="h-9 w-auto" animate={lockupInView} />
               </div>
               <p className="text-sm leading-relaxed text-foreground/70 max-w-sm">
                 {brand.tagline}
@@ -267,6 +271,13 @@ export function Footer() {
               >
                 Datenschutz
               </Link>
+              <button
+                type="button"
+                onClick={openConsentSettings}
+                className="text-left hover:text-foreground/80 transition-colors duration-300"
+              >
+                Cookie-Einstellungen
+              </button>
             </div>
           </div>
 
@@ -276,7 +287,7 @@ export function Footer() {
               Made with Next.js
             </div>
             <div className="px-3 py-1 rounded-full bg-foreground/5 border border-foreground/10 text-xs text-foreground/60 hover:border-foreground/30 transition-colors cursor-default">
-              Hosted in 🇨🇭
+              Hosting in der Schweiz
             </div>
           </div>
         </div>

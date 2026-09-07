@@ -13,7 +13,24 @@ const sections = [
     title: "Kontaktadresse",
     content: (
       <>
-        <p className="text-muted-foreground">(PLATZHALTER)</p>
+        <p className="text-muted-foreground">
+          {brand.contact.owner}
+          <br />
+          {brand.contact.street}
+          <br />
+          {brand.contact.postalCode} {brand.contact.city}
+          <br />
+          {brand.contact.country}
+        </p>
+        <p className="text-muted-foreground">
+          Telefon:{" "}
+          <a
+            href={`tel:${brand.contact.phone.replace(/\s/g, "")}`}
+            className="text-foreground underline underline-offset-4 hover:text-brand transition-colors"
+          >
+            {brand.contact.phone}
+          </a>
+        </p>
         <p className="text-muted-foreground">
           E-Mail:{" "}
           <a
@@ -71,7 +88,7 @@ const sections = [
     title: "Urheberrechte",
     content: (
       <p className="text-muted-foreground">
-        Das Urheberrecht und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschließlich (PLATZHALTER) oder den speziell genannten Rechteinhabern. Für die Reproduktion jeglicher Elemente muss im Voraus die schriftliche Zustimmung der Urheberrechtsinhaber eingeholt werden.
+        Das Urheberrecht und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschließlich {brand.contact.owner} oder den speziell genannten Rechteinhabern. Für die Reproduktion jeglicher Elemente muss im Voraus die schriftliche Zustimmung der Urheberrechtsinhaber eingeholt werden.
       </p>
     ),
   },
@@ -121,7 +138,7 @@ export default function ImpressumPage() {
           {/* Stand */}
           <div className="grid grid-cols-1 gap-4 py-10 md:grid-cols-[200px_1fr] md:gap-12">
             <h2 className="text-sm font-medium">Stand</h2>
-            <p className="text-sm text-muted-foreground">(DATUM)</p>
+            <p className="text-sm text-muted-foreground">{brand.legalUpdated}</p>
           </div>
         </div>
       </div>

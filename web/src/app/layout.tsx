@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { CookieBanner } from "@/components/consent/cookie-banner";
+import { Analytics } from "@/components/consent/analytics";
 import { brand } from "@/data/brand";
 
 const geistSans = Geist({
@@ -55,8 +57,10 @@ const jsonLd = {
   email: brand.contact.email,
   address: {
     "@type": "PostalAddress",
+    streetAddress: brand.contact.street,
+    postalCode: brand.contact.postalCode,
+    addressLocality: brand.contact.city,
     addressCountry: "CH",
-    addressRegion: brand.location,
   },
   areaServed: brand.serviceArea,
   foundingDate: brand.established.toString(),
@@ -91,7 +95,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* First in the DOM so keyboard users reach the consent choice before
+              the page content, while position:fixed keeps it visually at the bottom. */}
+          <CookieBanner />
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
