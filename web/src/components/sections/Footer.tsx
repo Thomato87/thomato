@@ -175,8 +175,17 @@ export function Footer() {
           {/* Brand column */}
           <div className="md:col-span-1">
             <div className="flex flex-col gap-4">
+              {/* Wie in der Navigation: logo-link lässt die Blätter beim
+                  Überfahren aufgehen. Der Ring zeichnet sich weiterhin beim
+                  Hereinscrollen, dafür bleibt der ref auf dem Wrapper. */}
               <div ref={lockupRef} className="w-fit text-foreground">
-                <LogoWordmark className="h-9 w-auto" animate={lockupInView} />
+                <Link
+                  href="/"
+                  aria-label={`${brand.name} – Startseite`}
+                  className="logo-link block"
+                >
+                  <LogoWordmark className="h-9 w-auto" animate={lockupInView} />
+                </Link>
               </div>
               <p className="text-sm leading-relaxed text-foreground/70 max-w-sm">
                 {brand.tagline}
