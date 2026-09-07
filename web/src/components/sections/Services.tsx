@@ -136,6 +136,15 @@ export function Services() {
           {pillar.offers.map((offer) => (
             <ServiceRow key={`${pillar.id}-${offer.id}`} offer={offer} />
           ))}
+          {/* Was wir nicht tun. Anfragen nach Postendienst kommen trotzdem,
+              also lieber hier ehrlich beantwortet als im Gespräch ausweichen. */}
+          {"note" in pillar && pillar.note ? (
+            <FadeIn className="px-4 pt-8 sm:px-6 sm:pt-12 md:px-12 lg:px-24">
+              <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                {pillar.note}
+              </p>
+            </FadeIn>
+          ) : null}
         </div>
       ))}
     </section>

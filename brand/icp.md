@@ -4,7 +4,12 @@ Thomato bedient zwei Kundengruppen, die sich in der Ausgangslage unterscheiden, 
 
 ---
 
-## Persona 1 – Medizinische Dienste
+## Persona 1 – Sicherheit und Notfallorganisation
+
+> **Teilweise überholt seit dem 7. September 2026.** Der Bedarf hat sich
+> verschoben: Diese Person kauft jetzt ein Konzept, keine Einsatzleistung.
+> Snapshot und Rolle stimmen weiterhin, die Abschnitte «Before» und «After»
+> gehören überarbeitet, sobald die ersten Konzeptkunden da sind.
 
 ### Persona Snapshot
 
@@ -18,7 +23,7 @@ Stage of Life or Business: Verantwortlich für Sicherheit, Organisation oder Dur
 
 Frustrations
 - Unsicherheit, ob medizinische Absicherung ausreichend geplant ist
-- Fehlende Ressourcen oder Personal im Rettungs- oder Sanitätsdienst
+- Unklar, welche Mittel die Bewilligungsbehörde für den Anlass verlangt
 - Zeitdruck bei der Organisation von Veranstaltungen oder Sicherheitskonzepten
 - Verantwortung für die Sicherheit vieler Menschen
 
@@ -114,4 +119,4 @@ Core Transformation
 "Eine verantwortliche Person in einer Gemeinde, Firma, Veranstaltung oder einem medizinischen Betrieb, die sicherstellen möchte, dass medizinische Sicherheit und die Abläufe dahinter professionell organisiert und zuverlässig umgesetzt sind."
 
 # Inferred Notes
-Thomato positioniert sich als professioneller Partner für medizinische Dienste, Sicherheitskonzepte, flexible Unterstützung im Rettungsdienstbereich und Software für medizinische Betriebe. Die beiden Personas überschneiden sich in der Praxis: Ein Rettungsdienst, der Springerdienste bezieht, ist zugleich ein plausibler Softwarekunde.
+Thomato positioniert sich als professioneller Partner für Software im Gesundheitswesen und für Sanitäts-, Sicherheits- und Notfallkonzepte. Die beiden Personas überschneiden sich in der Praxis: Ein Rettungsdienst, der seine Notfallorganisation überprüfen lässt, ist zugleich ein plausibler Softwarekunde.

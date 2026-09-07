@@ -1,147 +1,151 @@
 # Offer Stack
 
 ## Core Promise
-"Wir helfen Gemeinden, Unternehmen, Eventveranstaltern und medizinischen Betrieben, medizinische Sicherheit und die Abläufe dahinter professionell zu planen, umzusetzen und zu digitalisieren – ohne organisatorischen Stress – dank praxisnaher Erfahrung aus dem Rettungsdienst."
+"Wir helfen Betrieben im Gesundheitswesen, Gemeinden und Veranstaltern, ihre Abläufe zu digitalisieren und ihre Notfallorganisation so zu planen, dass sie im Ernstfall trägt – dank praxisnaher Erfahrung aus dem Rettungsdienst."
 
 ---
 
-# Bereich A – Medizinische Dienste
+# Bereich A – Digitale Lösungen
 
-### A1. Sanitätsdienst für Veranstaltungen
+### A1. Firmenwebsite
 
 Description:
-Medizinische Absicherung für kleine Veranstaltungen wie Dorffeste, Firmenanlässe oder Sportevents.
+Eine Seite, die Ihre Leistungen, Öffnungszeiten und Kontaktwege sauber zeigt. Schnell, auf dem Mobilgerät lesbar, in der Schweiz gehostet. Auf Wunsch mit Terminbuchung.
 
 Includes:
-- Qualifiziertes Sanitätspersonal vor Ort
-- Erste medizinische Versorgung bei Notfällen
-- Koordination mit Rettungsdiensten falls nötig
-- Einsatzplanung entsprechend Veranstaltungsgrösse
+- Leistungen, Öffnungszeiten und Kontaktwege auf einen Blick
+- Auf dem Mobilgerät gleich gut lesbar wie am Bildschirm
+- Hosting in der Schweiz
+- Online-Terminbuchung, wenn der Betrieb sie braucht
 
 Pricing:
-- Individuelle Offerte je nach Veranstaltungsgrösse und Einsatzdauer
+- Individuelle Offerte je nach Umfang
 
 ---
 
-### A2. Sicherheitskonzepte
+### A2. Fachanwendungen
 
 Description:
-Erstellung von medizinischen Sicherheits- und Notfallkonzepten für Veranstaltungen, Gemeinden oder Unternehmen.
+Dienst- und Schichtplanung, Material- und Medikamentenverwaltung. Kleine Werkzeuge für Abläufe, die sonst in Tabellen enden.
 
 Includes:
-- Analyse der Veranstaltung oder Organisation
-- Risikoanalyse und medizinische Einsatzplanung
-- Erstellung eines strukturierten Sicherheitskonzeptes
-- Empfehlungen für Notfallabläufe und Ressourcen
+- Dienst- und Schichtplanung mit Pikett und Verfügbarkeiten
+- Material- und Medikamentenverwaltung mit Ablaufkontrolle
+- Zugeschnitten auf den bestehenden Ablauf statt umgekehrt
+- In Etappen gebaut, jede einzeln abnehmbar
+
+Pricing:
+- Individuelle Offerte nach Aufwand
+
+---
+
+### A3. Betrieb und Wartung
+
+Description:
+Hosting, Domain, Aktualisierungen und Inhaltspflege im Abonnement. Der Kunde hat eine Ansprechperson, kein Ticketsystem.
+
+Includes:
+- Hosting, Domain und Zertifikate in einer Hand
+- Sicherheitsupdates und Aktualisierungen laufend
+- Inhaltspflege auf Wunsch im Abonnement
+- Eine feste Ansprechperson statt Ticketsystem
+
+Pricing:
+- Monatliches Abonnement
+
+---
+
+### A4. Datenschutz von Anfang an
+
+Description:
+Datenschutzerklärung passend zu den tatsächlich eingesetzten Diensten, Auftragsbearbeitungsvertrag und Hosting in der Schweiz. Bei Gesundheitsdaten ist das Pflicht, nicht Kür.
+
+Includes:
+- Datenschutzerklärung, die zu den eingesetzten Diensten passt
+- Auftragsbearbeitungsvertrag für die Zusammenarbeit
+- Hosting in der Schweiz
+- Verzeichnis der Bearbeitungstätigkeiten als Grundlage
+
+Pricing:
+- Teil des Projekts, nicht separat verrechnet
+
+---
+
+# Bereich B – Sicherheit und Notfallorganisation
+
+Konzepte und Beratung. Kein Sanitätsdienst an Veranstaltungen und keine
+Springerdienste – beides wurde am 7. September 2026 gestrichen. Formulierungen,
+die nach Versorgung am Patienten klingen, können eine Bewilligungspflicht
+auslösen und gehören deshalb weder hierhin noch auf die Website.
+
+### B1. Sanitätskonzept für Veranstaltungen
+
+Description:
+Bemessung nach der Richtlinie des Interverbands für Rettungswesen. Der Kunde erhält ein Konzept, das der Bewilligungsbehörde standhält, und weiss genau, welche Mittel er bestellen muss.
+
+Includes:
+- Bemessung nach der Richtlinie des Interverbands für Rettungswesen
+- Ein Konzept, das der Bewilligungsbehörde standhält
+- Klare Liste der Mittel, die bestellt werden müssen
+- Grundlage für das Gesuch um die Anlassbewilligung
+
+Pricing:
+- Individuelle Offerte je nach Anlassgrösse
+
+---
+
+### B2. Sicherheitskonzept
+
+Description:
+Zufahrten, Alarmierung, Zuständigkeiten und Abläufe für Veranstalter und Gemeinden. Schriftlich, nachvollziehbar, ohne Textbausteine.
+
+Includes:
+- Zufahrten und Rettungsachsen
+- Alarmierung und Zuständigkeiten, schriftlich festgehalten
+- Abläufe für den Ernstfall, nachvollziehbar dokumentiert
+- Ohne Textbausteine, auf die konkrete Lage geschrieben
 
 Pricing:
 - Individuelle Projektpreise je nach Umfang
 
 ---
 
-### A3. Beratung für Gemeinden und Firmen
+### B3. Ersthelferorganisation im Betrieb
 
 Description:
-Beratung zur Verbesserung der medizinischen Sicherheit und Notfallorganisation.
+Wer alarmiert, wer versorgt, wo liegt das Material und wer prüft es. Wir gehen mit dem Betrieb durch, was heute vorhanden ist, und sagen, was fehlt.
 
 Includes:
-- Analyse bestehender Strukturen
-- Empfehlungen für Sicherheits- und Rettungsstrukturen
-- Unterstützung bei der Planung von medizinischer Absicherung
-- Erfahrungsaustausch aus dem Rettungsdienst
+- Alarmierung und Zuständigkeiten im Betrieb geklärt
+- Standort und Prüfung des Notfallmaterials geregelt
+- Abgleich zwischen Vorhandenem und Fehlendem
+- Schriftliche Empfehlung zum Nachrüsten
 
 Pricing:
-- Beratungsstunden oder Projektpauschale
+- Individuelle Offerte je nach Betriebsgrösse
 
 ---
 
-### A4. Springerdienste für Rettungsdienste
+### B4. Begehung und Beurteilung
 
 Description:
-Flexible Unterstützung für Rettungsdienste bei Personalmangel oder erhöhter Einsatzbelastung.
+Eine Beurteilung der bestehenden Notfallabläufe vor Ort, mit schriftlichem Bericht und einer Liste der Massnahmen nach Dringlichkeit.
 
 Includes:
-- Einsatz als qualifizierter Rettungssanitäter
-- Kurzfristige oder geplante Einsätze
-- Integration in bestehende Rettungsdienstteams
+- Begehung der Räume und Abläufe
+- Beurteilung der bestehenden Notfallorganisation
+- Schriftlicher Bericht
+- Massnahmenliste nach Dringlichkeit geordnet
 
 Pricing:
-- Tagessatz oder Stundensatz nach Vereinbarung
-
----
-
-# Bereich B – Digitale Lösungen
-
-Web-Applikationen speziell für medizinische Betriebe. Alle Projekte laufen in Etappen: Nach jeder Etappe entscheidet der Kunde, ob es weitergeht. Datenhaltung in der Schweiz oder im EU-Raum, nach Schweizer Datenschutzgesetz (DSG).
-
-### B1. Individualentwicklung
-
-Description:
-Massgeschneiderte Web-Applikationen für den konkreten Ablauf im Betrieb – dort, wo Standardlösungen zu starr sind und Excel nicht mehr trägt.
-
-Includes:
-- Analyse der bestehenden Abläufe vor Ort
-- Web-Applikation nach Mass, auf jedem Gerät nutzbar
-- Anbindung an bestehende Systeme und Exporte
-- Betrieb, Wartung und Weiterentwicklung
-
-Pricing:
-- Aufwandschätzung in Etappen nach kostenlosem Erstgespräch
-
----
-
-### B2. Dienst- & Schichtplanung
-
-Description:
-Schichten, Pikett und Verfügbarkeiten an einem Ort – für Praxen, Rettungsdienste und Pflegebetriebe.
-
-Includes:
-- Dienstpläne erstellen, tauschen und freigeben
-- Verfügbarkeiten und Pikett im Überblick
-- Benachrichtigung bei jeder Änderung
-- Auswertung von Stunden und Einsätzen
-
-Pricing:
-- Projektpreis nach Umfang, optional mit monatlicher Wartung
-
----
-
-### B3. Material- & Medikamentenverwaltung
-
-Description:
-Bestand, Ablaufdaten und wiederkehrende Kontrollen für Rucksäcke, Fahrzeuge und Lager.
-
-Includes:
-- Bestand nach Standort, Fahrzeug und Rucksack
-- Ablauf- und Chargenkontrolle mit Vorwarnung
-- Checklisten für wiederkehrende Kontrollen
-- Nachbestellung und Verbrauchsauswertung
-
-Pricing:
-- Projektpreis nach Umfang, optional mit monatlicher Wartung
-
----
-
-### B4. Praxis-Websites & Terminbuchung
-
-Description:
-Webauftritte für Praxen und medizinische Betriebe inklusive Online-Terminvereinbarung und digitalen Formularen.
-
-Includes:
-- Webauftritt für Praxis oder Betrieb
-- Online-Terminvereinbarung rund um die Uhr
-- Digitale Anmelde- und Patientenformulare
-- Hosting in der Schweiz, DSG-konform
-
-Pricing:
-- Fixpreis für den Auftritt, optional monatliche Betreuung
+- Individuelle Offerte je nach Aufwand
 
 ---
 
 ## Add-Ons or Upsells
 
 - Risikoanalyse für Veranstaltungen
-- Einsatzplanung für medizinische Absicherung
+- Bemessung nach der Richtlinie des Interverbands für Rettungswesen
 - Unterstützung bei Behörden- oder Sicherheitsanforderungen
 - Wartungs- und Supportvereinbarung für bestehende Applikationen
 - Schulung von Mitarbeitenden auf eine neue Applikation
@@ -151,16 +155,15 @@ Pricing:
 
 ## Urgency & Scarcity Mechanisms
 
-- Begrenzte Einsatzkapazität pro Zeitraum
-- Frühzeitige Planung für Veranstaltungen empfohlen
-- Kurzfristige Einsätze je nach Verfügbarkeit
+- Frühzeitige Planung empfohlen, das Konzept gehört vor das Bewilligungsgesuch
+- Begrenzte Anzahl paralleler Konzeptaufträge, da jedes Konzept persönlich erarbeitet wird
 - Begrenzte Anzahl paralleler Softwareprojekte, da jedes Projekt persönlich betreut wird
 
 ---
 
 ## Guarantee or Risk Reversal
 
-Thomato steht für professionelle, zuverlässige und praxisnahe Leistungen. Alle medizinischen Leistungen basieren auf Erfahrung im Rettungsdienst und orientieren sich an realen Einsatzstandards.
+Thomato steht für professionelle, zuverlässige und praxisnahe Leistungen. Alle Konzepte basieren auf Erfahrung im Rettungsdienst und orientieren sich an realen Einsatzstandards sowie an der Richtlinie des Interverbands für Rettungswesen.
 
 Softwareprojekte laufen in Etappen mit einzeln abnehmbaren Zwischenständen. Der Kunde entscheidet nach jeder Etappe über die Fortsetzung – kein Grossprojekt auf Verdacht, keine Pauschale ins Blaue.
 
@@ -168,8 +171,7 @@ Softwareprojekte laufen in Etappen mit einzeln abnehmbaren Zwischenständen. Der
 
 # Inferred Messaging Angles
 
-- Professionelle medizinische Sicherheit für Veranstaltungen
-- Flexible Unterstützung im Rettungsdienst
+- Ein Sanitätskonzept, das der Bewilligungsbehörde standhält
 - Praxisnahe Sicherheitskonzepte von Einsatzprofis
 - Zuverlässiger Partner für Gemeinden und Unternehmen
 - Software für medizinische Betriebe, gebaut von jemandem, der ihren Alltag kennt

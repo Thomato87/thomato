@@ -3,7 +3,7 @@
 ## 1. Brand/Persona Identity
 
 Name / Persona
-Thomato – Medizinische Dienste & Software
+Thomato – Digitale Lösungen & Notfallorganisation
 
 Core Characteristics
 professionell, zuverlässig, hilfsbereit, ruhig in kritischen Situationen, lösungsorientiert
@@ -36,7 +36,7 @@ Anrede
 Konsequent «Sie». Kundenseitig wird über den Betrieb gesprochen, nicht über «User».
 
 Fachsprache
-Fachbegriffe aus dem Rettungsdienst (Pikett, Springerdienst, IVR, Einsatzplanung) werden bewusst verwendet – sie sind der Kompetenznachweis gegenüber Fachkunden. Technisches Vokabular wird dagegen zurückhaltend eingesetzt: Ein Praxisleiter kauft keine Architektur, sondern einen funktionierenden Ablauf.
+Fachbegriffe aus dem Rettungsdienst (Pikett, IVR, Anlassbewilligung, Notfallorganisation) werden bewusst verwendet – sie sind der Kompetenznachweis gegenüber Fachkunden. Technisches Vokabular wird dagegen zurückhaltend eingesetzt: Ein Praxisleiter kauft keine Architektur, sondern einen funktionierenden Ablauf.
 
 Beim Thema Software gilt
 Konkret statt abstrakt. Nicht «Prozessoptimierung», sondern «Dienstpläne tauschen, ohne dass jemand die Excel-Datei neu verschickt». Der Beweis der Kompetenz liegt im Detail des Alltags, nicht in Schlagworten.

@@ -17,7 +17,7 @@ export function Differentiators() {
             <h2 className="display-lg">Der Unterschied zählt.</h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:text-right">
-            Was Thomato von Samaritervereinen, allgemeinen Sicherheitsdienstleistern und branchenfremden Software-Agenturen unterscheidet – in der Praxis.
+            Was Thomato von allgemeinen Sicherheitsdienstleistern und branchenfremden Software-Agenturen unterscheidet – in der Praxis.
           </p>
         </FadeIn>
       </div>
