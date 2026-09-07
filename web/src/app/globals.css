@@ -43,6 +43,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-brand-solid: var(--brand-solid);
+  --color-brand-solid-foreground: var(--brand-solid-foreground);
 }
 
 :root {
@@ -94,6 +96,13 @@
   --sidebar-accent-foreground: oklch(0.13 0.028 258);
   --sidebar-border: oklch(0.878 0.012 255);
   --sidebar-ring: oklch(0.46 0.20 258);
+
+  /* Markenblau als gefuellte Flaeche, die weisse Schrift traegt: die
+     erreichte Stufe in der Leiter, der Sende-Knopf, gesetzte Haekchen.
+     Eigener Token, weil --brand in der dunklen Fassung zu hell ist und
+     weisse Schrift darauf nur 3,7 statt der geforderten 4,5 erreicht. */
+  --brand-solid: oklch(0.46 0.20 258);
+  --brand-solid-foreground: oklch(0.99 0.004 252);
 }
 
 .dark {
@@ -135,6 +144,9 @@
   --sidebar-accent-foreground: oklch(0.965 0.005 252);
   --sidebar-border: oklch(1 0 0 / 11%);
   --sidebar-ring: oklch(0.62 0.195 255);
+
+  --brand-solid: oklch(0.45 0.18 258);
+  --brand-solid-foreground: oklch(0.99 0.004 252);
 }
 
 @layer base {
@@ -230,4 +242,115 @@
     color: oklch(0.90 0.010 255);
     user-select: none;
   }
+}
+
+/* ─── Sanitätsdienst-Rechner ─────────────────────────────────────────────
+   Alles ab hier gehört zur Route /sanitatsdienstrechner. Was die übrige
+   Seite betreffen würde, ist auf .rechner-seite eingegrenzt. */
+
+@layer utilities {
+  .display-md {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+  }
+}
+
+/* Die Stufenleiter. Der Marker fährt zwischen den vier Bändern, waagrecht auf
+   kleinen Schirmen, senkrecht ab lg. Beide Übergänge stehen in derselben
+   Regel: sie liegt ausserhalb der Tailwind-Schichten und würde eine
+   Utility-Klasse für die Farbe sonst überstimmen. */
+.stufen-marker {
+  transform: translateX(calc(var(--stufe-x) * 100%));
+  transition:
+    transform 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .stufen-marker {
+    transform: translateY(calc(var(--stufe-y) * 100%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stufen-marker {
+    transition: none;
+  }
+}
+
+/* Der eigene Mauszeiger gehört zur Startseite, die ihn selbst zeichnet. Auf
+   einer Bedienoberfläche wäre ein verstecktes Zeigegerät eine
+   Verschlechterung, deshalb kommt hier der Systemzeiger zurück. */
+@media (pointer: fine) {
+  /* html und body liegen oberhalb des Wrappers und werden deshalb eigens
+     angesprochen, sonst bliebe der Zeiger auf der Seitenfläche versteckt. */
+  html:has(.rechner-seite),
+  html:has(.rechner-seite) body,
+  .rechner-seite,
+  .rechner-seite *,
+  .rechner-seite *::before,
+  .rechner-seite *::after {
+    cursor: auto !important;
+  }
+
+  .rechner-seite a,
+  .rechner-seite button,
+  .rechner-seite summary,
+  .rechner-seite label,
+  .rechner-seite select,
+  .rechner-seite [role="button"] {
+    cursor: pointer !important;
+  }
+
+  .rechner-seite input:not([type="radio"]):not([type="checkbox"]),
+  .rechner-seite textarea {
+    cursor: text !important;
+  }
+}
+
+/* Die Flächen, die der Browser stellt, gehören zur Gestaltung. */
+.rechner-seite ::selection {
+  background: var(--brand);
+  color: oklch(0.99 0.004 252);
+}
+
+.rechner-seite * {
+  caret-color: var(--brand);
+}
+
+.rechner-seite :focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.rechner-seite a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+.rechner-seite ::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+.rechner-seite ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.rechner-seite ::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 3px solid var(--background);
+  border-radius: 999px;
+}
+
+.rechner-seite ::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Zahlen laufen tabellarisch, damit sie beim Rechnen nicht springen. */
+.rechner-seite [data-zahl],
+.rechner-seite input[inputmode="numeric"] {
+  font-variant-numeric: tabular-nums;
 }

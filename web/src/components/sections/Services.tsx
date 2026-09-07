@@ -72,13 +72,25 @@ function ServiceRow({ offer }: { offer: Offer }) {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="#kontakt"
-                    className="eyebrow mt-2 inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    Anfrage stellen
-                    <ArrowUpRight className="h-3 w-3" />
-                  </Link>
+                  <div className="mt-2 flex flex-wrap items-center gap-x-8 gap-y-3">
+                    <Link
+                      href="#kontakt"
+                      className="eyebrow inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      Anfrage stellen
+                      <ArrowUpRight className="h-3 w-3" />
+                    </Link>
+                    {/* Nur einzelne Leistungen tragen ein eigenes Werkzeug. */}
+                    {"link" in offer && offer.link ? (
+                      <Link
+                        href={offer.link.href}
+                        className="eyebrow inline-flex items-center gap-2 text-brand hover:text-foreground transition-colors"
+                      >
+                        {offer.link.label}
+                        <ArrowUpRight className="h-3 w-3" />
+                      </Link>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </div>

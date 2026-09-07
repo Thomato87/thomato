@@ -35,6 +35,10 @@ const safetyOffers = [
       "Abläufe für den Ernstfall, nachvollziehbar dokumentiert",
       "Ohne Textbausteine, auf Ihre Lage geschrieben",
     ],
+    link: {
+      href: "/sanitatsdienstrechner",
+      label: "Bedarf selbst berechnen",
+    },
   },
   {
     id: "03",
