@@ -36,7 +36,7 @@ const safetyOffers = [
       "Ohne Textbausteine, auf Ihre Lage geschrieben",
     ],
     link: {
-      href: "/sanitatsdienstrechner",
+      href: "/sanitaetsdienst-rechner",
       label: "Bedarf selbst berechnen",
     },
   },
@@ -150,6 +150,7 @@ export const brand = {
   nav: [
     { label: "Software", href: "#software" },
     { label: "Sicherheit", href: "#sicherheit" },
+    { label: "Rechner", href: "/sanitaetsdienst-rechner" },
     { label: "Prozess", href: "#prozess" },
     { label: "FAQ", href: "#faq" },
     { label: "Kontakt", href: "#kontakt" },

@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { Services } from "@/components/sections/Services";
+import { RechnerHinweis } from "@/components/sections/RechnerHinweis";
 import { Process } from "@/components/sections/Process";
 import { Differentiators } from "@/components/sections/Differentiators";
 import { FAQ } from "@/components/sections/FAQ";
@@ -35,6 +36,7 @@ export default function Home() {
         <Marquee />
         <TrustBar />
         <Services />
+        <RechnerHinweis />
         <Process />
         <Differentiators />
         <Contact />

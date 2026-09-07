@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Rechner } from "@/components/rechner/rechner";
+import {
+  Abschluss,
+  Erklaerung,
+  HaeufigeFragen,
+} from "@/components/rechner/inhalt";
 import { ModeToggle } from "@/components/theme/theme-toggle";
 import { LogoWordmark } from "@/components/ui/logo";
 import { brand } from "@/data/brand";
@@ -22,41 +27,47 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: rechner.name,
-  url: rechnerUrl,
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  inLanguage: "de-CH",
-  description: rechner.beschreibung,
-  isAccessibleForFree: true,
-  publisher: {
-    "@type": "Organization",
-    name: brand.name,
-    url: brand.meta.url,
+/**
+ * Zwei Datensätze für die Suche: das Werkzeug selbst und die häufigen Fragen.
+ * Letztere können als erweitertes Suchergebnis erscheinen, deshalb stehen die
+ * Antworten hier wörtlich so wie auf der Seite.
+ */
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: rechner.name,
+    url: rechnerUrl,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    inLanguage: "de-CH",
+    description: rechner.beschreibung,
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "CHF" },
+    publisher: {
+      "@type": "Organization",
+      name: brand.name,
+      url: brand.meta.url,
+    },
   },
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: rechner.faq.map((f) => ({
+      "@type": "Question",
+      name: f.frage,
+      acceptedAnswer: { "@type": "Answer", text: f.antwort },
+    })),
+  },
+];
 
 function Kopf() {
   return (
     <div className="space-y-5">
-      <h1 className="display-lg max-w-[24ch] text-foreground">
-        Wie viel Sanitätspersonal braucht Ihre Veranstaltung?
-      </h1>
+      <h1 className="display-lg max-w-[22ch] text-foreground">{rechner.h1}</h1>
       <div className="max-w-[65ch] space-y-4 text-base leading-relaxed text-muted-foreground">
-        <p>
-          Beantworten Sie ein paar Fragen zu Ihrem Anlass. Der Rechner ermittelt
-          daraus die Ausbaustufe des Sanitätsdienstes und den Bedarf an Personal
-          und Mitteln, nach den Richtlinien des Interverbands für Rettungswesen
-          IVR und der Gefahrenanalyse nach Klaus Maurer.
-        </p>
-        <p>
-          Sie brauchen dafür kein Vorwissen. Jede Frage sagt Ihnen, was gemeint
-          ist, und am Ende können Sie jede Zahl bis zur Zeile in der Richtlinie
-          zurückverfolgen.
-        </p>
+        <p>{rechner.vorspann}</p>
+        <p>{rechner.vorspannZwei}</p>
       </div>
     </div>
   );
@@ -82,10 +93,7 @@ export default function SanitaetsdienstRechnerSeite() {
             className="logo-link -my-1 inline-flex items-center gap-3 py-1.5 text-foreground"
           >
             <LogoWordmark className="h-5 w-auto" />
-            <span
-              aria-hidden
-              className="hidden h-4 w-px bg-border sm:block"
-            />
+            <span aria-hidden className="hidden h-4 w-px bg-border sm:block" />
             <span className="hidden text-sm text-muted-foreground sm:block">
               {rechner.name}
             </span>
@@ -96,6 +104,12 @@ export default function SanitaetsdienstRechnerSeite() {
 
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
         <Rechner kopf={<Kopf />} />
+
+        <div className="mt-16 space-y-12 sm:mt-24 sm:space-y-16">
+          <Erklaerung />
+          <HaeufigeFragen />
+          <Abschluss />
+        </div>
       </main>
 
       <footer className="mt-16 border-t border-border">
@@ -118,7 +132,8 @@ export default function SanitaetsdienstRechnerSeite() {
           </p>
           <p className="max-w-[70ch] text-sm leading-relaxed text-muted-foreground">
             Ihre Angaben bleiben in Ihrem Browser. Sie werden nicht gespeichert,
-            nicht übertragen und nicht ausgewertet.
+            nicht übertragen und nicht ausgewertet, solange Sie das Ergebnis
+            nicht selbst per Mail anfordern.
           </p>
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
             <Link
@@ -127,6 +142,12 @@ export default function SanitaetsdienstRechnerSeite() {
             >
               <ArrowLeft aria-hidden className="size-3.5" strokeWidth={1.75} />
               Zurück zu {brand.name}
+            </Link>
+            <Link
+              href="/#sicherheit"
+              className="text-muted-foreground underline decoration-border hover:text-foreground hover:decoration-brand"
+            >
+              Sanitäts- und Sicherheitskonzepte
             </Link>
             <Link
               href="/impressum"

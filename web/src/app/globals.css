@@ -245,7 +245,7 @@
 }
 
 /* ─── Sanitätsdienst-Rechner ─────────────────────────────────────────────
-   Alles ab hier gehört zur Route /sanitatsdienstrechner. Was die übrige
+   Alles ab hier gehört zur Route /sanitaetsdienst-rechner. Was die übrige
    Seite betreffen würde, ist auf .rechner-seite eingegrenzt. */
 
 @layer utilities {

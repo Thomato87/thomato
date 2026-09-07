@@ -10,20 +10,27 @@ const nextConfig: NextConfig = {
     "/twitter-image": ["./src/assets/fonts/*.ttf"],
     // Das PDF des Sanitaetsdienst-Rechners setzt dieselben Schriften.
     "/api/rechner-pdf": ["./src/assets/fonts/*.ttf"],
+    "/sanitaetsdienst-rechner/opengraph-image": ["./src/assets/fonts/*.ttf"],
   },
 
   // Schreibweisen, die jemand von Hand eintippt oder in eine Mail schreibt.
-  // Der Pfad selbst bleibt /sanitatsdienstrechner.
+  // Kanonisch ist /sanitaetsdienst-rechner: Google liest Bindestriche als
+  // Worttrennung, eine zusammengeschriebene Adresse ist ein unbekanntes Wort.
   async redirects() {
     return [
       {
-        source: "/sanitaetsdienst-rechner",
-        destination: "/sanitatsdienstrechner",
+        source: "/sanitatsdienstrechner",
+        destination: "/sanitaetsdienst-rechner",
         permanent: true,
       },
       {
         source: "/sanitaetsdienstrechner",
-        destination: "/sanitatsdienstrechner",
+        destination: "/sanitaetsdienst-rechner",
+        permanent: true,
+      },
+      {
+        source: "/sanitaetsdienstrechner-veranstaltung",
+        destination: "/sanitaetsdienst-rechner",
         permanent: true,
       },
     ];

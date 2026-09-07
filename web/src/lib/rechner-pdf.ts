@@ -270,7 +270,7 @@ export async function baueRechnerPdf(
   doc.setSubject(
     "Empfehlung für die Ausbaustufe des Sanitätsdienstes nach IVR-Richtlinie",
   );
-  doc.setCreator("thomato.ch/sanitatsdienstrechner");
+  doc.setCreator("thomato.ch/sanitaetsdienst-rechner");
 
   const s = new Satz(doc, f);
   const datum = new Date().toLocaleDateString("de-CH", {
@@ -294,7 +294,7 @@ export async function baueRechnerPdf(
   s.text("Empfehlung für den Sanitätsdienst", { groesse: 22, font: f.leicht });
   s.luft(6);
   s.text(
-    `Erstellt am ${datum} auf thomato.ch/sanitatsdienstrechner, nach den Richtlinien des Interverbands für Rettungswesen IVR, Ausgabe 2017, und der Gefahrenanalyse nach Klaus Maurer.`,
+    `Erstellt am ${datum} auf thomato.ch/sanitaetsdienst-rechner, nach den Richtlinien des Interverbands für Rettungswesen IVR, Ausgabe 2017, und der Gefahrenanalyse nach Klaus Maurer.`,
     { groesse: 8.5, farbe: GEDAEMPFT },
   );
   s.luft(20);
@@ -461,7 +461,7 @@ export async function baueRechnerPdf(
       thickness: 0.75,
       color: LINIE,
     });
-    seite.drawText("thomato.ch/sanitatsdienstrechner", {
+    seite.drawText("thomato.ch/sanitaetsdienst-rechner", {
       x: RAND,
       y: RAND + 6,
       size: 7.5,
