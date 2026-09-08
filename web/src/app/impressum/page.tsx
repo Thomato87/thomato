@@ -64,7 +64,7 @@ const sections = [
     title: "Haftung für Links",
     content: (
       <p className="text-muted-foreground">
-        Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereiches. Jegliche Verantwortung für solche Websites wird abgelehnt. Der Zugang und die Benutzung solcher Websites erfolgt auf eigenes Risiko des Benutzers.
+        Verweise und Links auf Webseiten Dritter liegen ausserhalb meines Verantwortungsbereiches. Jegliche Verantwortung für solche Websites wird abgelehnt. Der Zugang und die Benutzung solcher Websites erfolgt auf eigenes Risiko des Benutzers.
       </p>
     ),
   },
@@ -81,10 +81,10 @@ const sections = [
     content: (
       <div className="flex flex-col gap-4 text-muted-foreground">
         <p>
-          Gestützt auf Artikel 13 der Schweizerischen Bundesverfassung und die Datenschutzbestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf den Schutz ihrer Privatsphäre und auf Schutz vor Missbrauch ihrer persönlichen Daten. Wir halten uns an diese Bestimmungen. Persönliche Daten werden streng vertraulich behandelt und nicht verkauft oder an Dritte weitergegeben.
+          Gestützt auf Artikel 13 der Schweizerischen Bundesverfassung und die Datenschutzbestimmungen des Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf den Schutz ihrer Privatsphäre und auf Schutz vor Missbrauch ihrer persönlichen Daten. Ich halte mich an diese Bestimmungen. Persönliche Daten werden streng vertraulich behandelt und nicht verkauft oder an Dritte weitergegeben.
         </p>
         <p>
-          In enger Zusammenarbeit mit unseren Hosting-Providern sind wir bestrebt, die Datenbanken so weit wie möglich vor unberechtigtem Zugriff, Verlust, Missbrauch oder Fälschung zu schützen. Weitere Informationen zum Datenschutz entnehmen Sie bitte unserer Datenschutzerklärung.
+          In enger Zusammenarbeit mit meinem Hosting-Provider bin ich bestrebt, die Datenbanken so weit wie möglich vor unberechtigtem Zugriff, Verlust, Missbrauch oder Fälschung zu schützen. Weitere Informationen zum Datenschutz entnehmen Sie bitte meiner Datenschutzerklärung.
         </p>
       </div>
     ),

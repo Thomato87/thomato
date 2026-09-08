@@ -84,7 +84,7 @@ export function Contact() {
           </div>
 
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Schildern Sie uns Ihren Bedarf – wir melden uns innerhalb von 24 Stunden mit einer persönlichen Einschätzung.
+            Schildern Sie mir Ihren Bedarf, ich melde mich innerhalb von 24 Stunden mit einer persönlichen Einschätzung.
           </p>
 
           <Separator />
@@ -119,7 +119,7 @@ export function Contact() {
               <div className="flex flex-col gap-1">
                 <p className="font-medium">Vielen Dank für Ihre Anfrage.</p>
                 <p className="text-sm text-muted-foreground">
-                  Wir melden uns in Kürze persönlich bei Ihnen.
+                  Ich melde mich in Kürze persönlich bei Ihnen.
                 </p>
               </div>
               <Button variant="ghost" size="sm" onClick={() => setFormState("idle")}>
@@ -230,7 +230,7 @@ export function Contact() {
                 {formState === "error" && (
                   <div className="flex items-center gap-2 rounded-sm border border-destructive/30 bg-destructive/5 px-3 py-2 text-sm text-destructive">
                     <AlertCircle className="h-4 w-4 shrink-0" />
-                    Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.
+                    Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.
                   </div>
                 )}
 

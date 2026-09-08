@@ -75,7 +75,7 @@ export function CookieBanner() {
                 </h2>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Für den Betrieb dieser Seite sind keine Cookies nötig. Wenn Sie
-                  zustimmen, messen wir mit Google Analytics anonymisiert, welche
+                  zustimmen, messe ich mit Google Analytics anonymisiert, welche
                   Inhalte gelesen werden – sonst wird nichts geladen und nichts
                   gespeichert. Ihre Wahl können Sie jederzeit ändern.{" "}
                   <Link
@@ -129,7 +129,7 @@ export function CookieBanner() {
                               <label htmlFor="consent-statistics">Statistik</label>
                             </dt>
                             <dd className="text-sm leading-relaxed text-muted-foreground">
-                              Google Analytics mit gekürzter IP-Adresse. Zeigt uns,
+                              Google Analytics mit gekürzter IP-Adresse. Zeigt mir,
                               welche Seiten gelesen werden – nicht, wer sie liest.
                             </dd>
                           </div>

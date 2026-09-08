@@ -21,7 +21,7 @@ export function FAQ() {
             <h2 className="display-lg">Häufige Fragen.</h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Nicht dabei? Schreiben Sie uns – wir antworten persönlich und ohne Wartezeit.
+            Nicht dabei? Schreiben Sie mir, ich antworte persönlich und ohne Wartezeit.
           </p>
         </FadeIn>
 

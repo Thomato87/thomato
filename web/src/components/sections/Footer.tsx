@@ -104,7 +104,7 @@ export function Footer() {
             <div>
               <h2 className="eyebrow mb-4 text-xs text-foreground">Nächster Schritt</h2>
               <p className="text-xs leading-relaxed text-foreground/65">
-                Schildern Sie uns Ihr Anliegen. Wir melden uns in der Regel am
+                Schildern Sie mir Ihr Anliegen. Ich melde mich in der Regel am
                 selben Werktag.
               </p>
             </div>

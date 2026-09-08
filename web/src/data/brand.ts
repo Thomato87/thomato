@@ -45,7 +45,7 @@ const safetyOffers = [
     title: "Ersthelferorganisation",
     subtitle: "im Betrieb",
     description:
-      "Wer alarmiert, wer versorgt, wo liegt das Material und wer prüft es. Wir gehen mit Ihnen durch, was Sie heute haben, und sagen Ihnen, was fehlt.",
+      "Wer alarmiert, wer versorgt, wo liegt das Material und wer prüft es. Ich gehe mit Ihnen durch, was Sie heute haben, und sage Ihnen, was fehlt.",
     deliverables: [
       "Alarmierung und Zuständigkeiten im Betrieb geklärt",
       "Standort und Prüfung des Notfallmaterials geregelt",
@@ -190,12 +190,12 @@ export const brand = {
       id: "sicherheit",
       label: "Sicherheit und Notfallorganisation",
       description:
-        "Konzepte und Beratung aus über 15 Jahren Rettungsdienst. Wir planen, was im Ernstfall funktionieren muss.",
+        "Konzepte und Beratung aus über 15 Jahren Rettungsdienst. Ich plane, was im Ernstfall funktionieren muss.",
       offers: safetyOffers,
       // Postendienst-Anfragen kommen, weil die Lücke in der Region echt ist.
       // Lieber ehrlich beantworten als ausweichen – und ohne eine Formulierung,
       // die nach Einsatzleistung klingt und eine Bewilligungspflicht auslöst.
-      note: "Wir führen selbst keinen Sanitätsdienst an Veranstaltungen durch. Wenn Sie Personal für Ihren Anlass brauchen, erstellen wir Ihnen das Konzept und sagen Ihnen, welche Anbieter in der Region dafür in Frage kommen.",
+      note: "Ich führe selbst keinen Sanitätsdienst an Veranstaltungen durch. Wenn Sie Personal für Ihren Anlass brauchen, erstelle ich Ihnen das Konzept und sage Ihnen, welche Anbieter in der Region dafür in Frage kommen.",
     },
   ],
 
@@ -207,18 +207,18 @@ export const brand = {
       step: "01",
       title: "Kontaktaufnahme",
       description:
-        "Schildern Sie uns Ihren Bedarf – unverbindlich und unkompliziert.",
+        "Schildern Sie mir Ihren Bedarf, unverbindlich und unkompliziert.",
       items: [
         "Antwort innerhalb von 24 Stunden",
         "Telefonisch, per E-Mail oder Formular",
       ],
-      note: "Wir antworten in der Regel noch am selben Werktag.",
+      note: "Ich antworte in der Regel noch am selben Werktag.",
     },
     {
       step: "02",
       title: "Bedarfsanalyse",
       description:
-        "Wir analysieren Ihre Situation und erstellen ein massgeschneidertes Angebot.",
+        "Ich analysiere Ihre Situation und erstelle ein Angebot, das dazu passt.",
       items: [
         "Risikoanalyse, Konzept- oder Projektplanung",
         "Kostenlos und unverbindlich",
@@ -242,12 +242,12 @@ export const brand = {
     {
       title: "Echte Rettungsdienst-Erfahrung",
       description:
-        "Unsere Leistungen basieren nicht auf Theorie, sondern auf über 15 Jahren Praxis im Rettungsdienst. Das merkt man jedem Konzept und jeder Anwendung an.",
+        "Meine Leistungen basieren nicht auf Theorie, sondern auf über 15 Jahren Praxis im Rettungsdienst. Das merkt man jedem Konzept und jeder Anwendung an.",
     },
     {
       title: "Software, die den Betrieb schon kennt",
       description:
-        "Wir haben Dienstpläne getauscht, Rucksäcke kontrolliert und Ablaufdaten übersehen. Deshalb bauen wir Applikationen, die Ihren Ablauf abbilden statt ihn umzubauen – Sie müssen uns Ihre Branche nicht erst erklären.",
+        "Ich habe Dienstpläne getauscht, Rucksäcke kontrolliert und Ablaufdaten übersehen. Deshalb baue ich Applikationen, die Ihren Ablauf abbilden statt ihn umzubauen. Sie müssen mir Ihre Branche nicht erst erklären.",
     },
     {
       title: "Individuelle Lösungen",
@@ -257,7 +257,7 @@ export const brand = {
     {
       title: "Volle Verlässlichkeit",
       description:
-        "Zugesagte Termine halten. Was wir schreiben, hält der Bewilligungsbehörde stand, und was wir bauen, läuft auch dann noch, wenn niemand hinschaut. Sicherheit kennt keine Ausnahmen – und keine Entschuldigungen.",
+        "Zugesagte Termine halten. Was ich schreibe, hält der Bewilligungsbehörde stand, und was ich baue, läuft auch dann noch, wenn niemand hinschaut. Sicherheit kennt keine Ausnahmen – und keine Entschuldigungen.",
     },
   ],
 
@@ -265,7 +265,7 @@ export const brand = {
     {
       question: "Führen Sie den Sanitätsdienst an unserem Anlass auch durch?",
       answer:
-        "Nein. Wir erstellen das Konzept und bemessen den Bedarf nach der Richtlinie des Interverbands für Rettungswesen. Für die Durchführung sagen wir Ihnen, welche Anbieter in der Region dafür in Frage kommen.",
+        "Nein. Ich erstelle das Konzept und bemesse den Bedarf nach der Richtlinie des Interverbands für Rettungswesen. Für die Durchführung sage ich Ihnen, welche Anbieter in der Region dafür in Frage kommen.",
     },
     {
       question: "Wonach wird ein Sanitätskonzept bemessen?",
@@ -276,17 +276,17 @@ export const brand = {
       question:
         "Warum sollte ich Software von einem Rettungssanitäter entwickeln lassen?",
       answer:
-        "Weil der teuerste Teil eines Softwareprojekts das Erklären ist. Wir kennen Dienstpläne, Materialkontrollen und den Ablauf in einem medizinischen Betrieb aus eigener Erfahrung. Sie beschreiben uns nicht Ihre Branche, sondern nur Ihren konkreten Fall.",
+        "Weil der teuerste Teil eines Softwareprojekts das Erklären ist. Ich kenne Dienstpläne, Materialkontrollen und den Ablauf in einem medizinischen Betrieb aus eigener Erfahrung. Sie beschreiben mir nicht Ihre Branche, sondern nur Ihren konkreten Fall.",
     },
     {
       question: "Wo werden die Daten unserer Applikation gespeichert?",
       answer:
-        "In der Schweiz oder im EU-Raum, je nach Anforderung. Wir arbeiten nach dem Schweizer Datenschutzgesetz (DSG). Sind Patientendaten im Spiel, klären wir die Anforderungen vor Projektstart schriftlich ab.",
+        "In der Schweiz oder im EU-Raum, je nach Anforderung. Ich arbeite nach dem Schweizer Datenschutzgesetz (DSG). Sind Patientendaten im Spiel, kläre ich die Anforderungen vor Projektstart schriftlich ab.",
     },
     {
       question: "Was kostet eine Web-Applikation?",
       answer:
-        "Das hängt vom Umfang ab. Wir starten mit einem kostenlosen Erstgespräch und einer Aufwandschätzung in Etappen. Nach jeder Etappe entscheiden Sie, ob es weitergeht – keine Pauschale ins Blaue.",
+        "Das hängt vom Umfang ab. Ich starte mit einem kostenlosen Erstgespräch und einer Aufwandschätzung in Etappen. Nach jeder Etappe entscheiden Sie, ob es weitergeht – keine Pauschale ins Blaue.",
     },
     {
       question: "Übernehmen Sie auch Wartung und Weiterentwicklung?",
@@ -296,7 +296,7 @@ export const brand = {
     {
       question: "Übernehmen Sie auch die Koordination mit Behörden?",
       answer:
-        "Ja. Auf Wunsch unterstützen wir Sie bei der Kommunikation mit Gemeinden, Polizei und Rettungsdiensten sowie bei der Erstellung behördenkonformer Sicherheitskonzepte.",
+        "Ja. Auf Wunsch unterstütze ich Sie bei der Kommunikation mit Gemeinden, Polizei und Rettungsdiensten sowie bei der Erstellung behördenkonformer Sicherheitskonzepte.",
     },
   ],
 

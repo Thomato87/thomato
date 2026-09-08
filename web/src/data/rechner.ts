@@ -107,12 +107,12 @@ export const rechner = {
     {
       frage: "Was kostet ein Sanitätskonzept?",
       antwort:
-        "Bei uns CHF 450 bis 900, je nach Grösse des Anlasses und ob eine Begehung nötig ist.",
+        "Bei mir CHF 450 bis 900, je nach Grösse des Anlasses und ob eine Begehung nötig ist.",
     },
     {
       frage: "Führen Sie den Sanitätsdienst auch durch?",
       antwort:
-        "Nein. Wir erstellen das Konzept und sagen Ihnen, welche Anbieter in der Region für die Durchführung in Frage kommen.",
+        "Nein. Ich erstelle das Konzept und sage Ihnen, welche Anbieter in der Region für die Durchführung in Frage kommen.",
     },
     {
       frage: "Werden meine Eingaben gespeichert?",
@@ -126,7 +126,7 @@ export const rechner = {
     titel: "Aus der Zahl ein Konzept machen",
     absaetze: [
       "Der Rechner sagt Ihnen, welche Ausbaustufe Ihr Anlass erreicht. Was die Gemeinde sehen will, ist ein Konzept, das diese Bemessung ausweist und daraus Posten, Personal, Abläufe und Alarmierung ableitet.",
-      "Genau das schreiben wir. Aus der Praxis des aktiven Rettungsdienstes, ohne Textbausteine, auf Ihre Lage geschrieben.",
+      "Genau das schreibe ich. Aus der Praxis des aktiven Rettungsdienstes, ohne Textbausteine, auf Ihre Lage geschrieben.",
     ],
     hinweis:
       "Sanitätskonzept nach IVR-Richtlinie: CHF 450 bis 900, je nach Grösse und ob eine Begehung nötig ist.",

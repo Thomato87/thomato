@@ -106,7 +106,7 @@ export function Services() {
       <FadeIn className="mb-10 flex items-end justify-between gap-4 px-4 sm:mb-16 sm:gap-8 sm:px-6 md:px-12 lg:px-24">
         <div className="flex flex-col gap-2">
           <span className="eyebrow text-brand">Leistungen</span>
-          <h2 className="display-lg max-w-lg">Was wir für Sie leisten.</h2>
+          <h2 className="display-lg max-w-lg">Was ich für Sie leiste.</h2>
         </div>
         <p className="hidden max-w-xs text-right text-sm leading-relaxed text-muted-foreground md:block">
           Zwei Bereiche, ein Fundament – jahrelange Praxis im Schweizer
