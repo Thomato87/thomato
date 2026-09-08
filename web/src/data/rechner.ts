@@ -50,7 +50,7 @@ export const rechner = {
       titel: "Was die vier Ausbaustufen bedeuten",
       absaetze: [
         "Stufe 0 heisst, dass auf einen Sanitätsdienst vor Ort verzichtet werden kann. Die Alarmierung läuft im Notfall über die Sanitätsnotrufzentrale 144 wie im Alltag.",
-        "Stufe 1 ist der klassische Samariterposten: ein oder mehrere Sanitätsposten mit je mindestens zwei Personen, die Leitung mit Kurs Erste Hilfe oder vergleichbarer Ausbildung. Bei weitläufigem Gelände kommen Patrouillen dazu.",
+        "Stufe 1 ist der klassische Samariterposten: ein oder mehrere Sanitätsposten mit je mindestens zwei Personen, die Leitung mit der Ausbildung First Aid Stufe 2 IVR oder gleichwertig. Bei weitläufigem Gelände kommen Patrouillen dazu.",
         "Stufe 2 verstärkt diese Posten mit Fachpersonal. Rettungssanitäter und bei Bedarf Ärzte übernehmen Verantwortung und Triage. Liegt der Ort weit von den Rettungsdiensten entfernt, kommt ein Rettungsfahrzeug mit Besatzung dazu.",
         "Stufe 3 verlangt ein eigenes Einsatzkonzept mit professioneller Einsatzleitung, mobilen Patrouillen, Transportmitteln vor Ort und bei Bedarf einer eingerichteten Sanitätshilfsstelle auf dem Gelände.",
       ],

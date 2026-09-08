@@ -613,7 +613,8 @@ export async function baueRechnerPdf(
   // ─── Angebot ────────────────────────────────────────────────────────────
   s.luft(24);
   s.kasten("Für das ausgeschriebene Konzept nehmen Sie mit Thomato Kontakt auf", [
-    "Dieses Dokument nennt die Ausbaustufe und den Bedarf an Personal und Mitteln. Was eine Bewilligungsbehörde verlangt, ist in aller Regel mehr: ein ausgeschriebenes Sanitätskonzept mit Lageplan und Standort des Sanitätspostens, Alarmierungsablauf, freizuhaltenden Zufahrten für die Rettungsmittel, der Absprache mit dem regionalen Rettungsdienst und der Polizei sowie einer Risikobeurteilung, die auf Ihre Veranstaltung passt.",
+    "Dieses Dokument nennt die Ausbaustufe und den Bedarf an Personal und Mitteln. Eine Bewilligungsbehörde verlangt daneben in aller Regel ein ausgeschriebenes Sanitätskonzept: Lageplan mit dem Standort des Sanitätspostens, Alarmierungsablauf, freizuhaltende Zufahrten für die Rettungsmittel, die Absprache mit dem regionalen Rettungsdienst und der Polizei sowie eine Risikobeurteilung, die auf Ihre Veranstaltung passt. Verlangt ist also ein Dokument, nicht zusätzliches Personal.",
+    "Eher im Gegenteil: Mit ausgebildeten Fachkräften kommt eine Veranstaltung oft mit weniger Personen aus. Die Zahlen oben weisen Samariter aus, ausdrücklich ohne Personal der Rettungsdienste. Eine kleinere, fachlich besetzte Mannschaft leistet häufig dasselbe. Begründen lässt sich das aber nur in einem Konzept, nicht in einer Tabelle.",
     "Genau das erstellt Thomato für Sie, ausgehend von dieser Berechnung. Ein Sanitätskonzept kostet je nach Umfang der Veranstaltung CHF 450 bis 900. Schreiben Sie an info@thomato.ch oder über das Formular auf thomato.ch.",
   ]);
 

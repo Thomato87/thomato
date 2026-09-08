@@ -41,13 +41,19 @@ export const STUFEN: {
       "Auf einen Sanitätsdienst vor Ort kann verzichtet werden. Die Alarmierung läuft im Notfall über die Sanitätsnotrufzentrale 144 wie im Alltag.",
   },
   {
+    // Die Richtlinie von 2017 nennt hier noch den "Kurs Erste Hilfe SSB".
+    // Bewusst ersetzt durch die heute geltende Ausbildungsstufe des IVR:
+    // First Aid Stufe 2 IVR, Zielgruppe Betriebssanitäter, setzt Stufe 1
+    // voraus. Bewusst mit der vollen Kursbezeichnung geschrieben und nicht als
+    // "IVR-Stufe 2", weil der Rechner sein Ergebnis selbst als Stufe 1 bis 3
+    // ausgibt und das die Ausbaustufe meint, nicht die Ausbildung.
     stufe: 1,
     titel: "Sanitätsposten",
     mobil: "Posten",
     bereich: "bis 4 Punkte",
     kurz: "Laienhelfer vor Ort",
     beschreibung:
-      "Ein oder mehrere Sanitätsposten, jeder mit mindestens zwei Personen besetzt. Die Leitung braucht einen Kurs Erste Hilfe SSB oder eine vergleichbare Ausbildung. Bei weitläufigem Gelände kommen Patrouillen zu mindestens zwei Personen dazu.",
+      "Ein oder mehrere Sanitätsposten, jeder mit mindestens zwei Personen besetzt. Die Leitung braucht mindestens die Ausbildung First Aid Stufe 2 IVR oder eine gleichwertige Qualifikation. Bei weitläufigem Gelände kommen Patrouillen zu mindestens zwei Personen dazu.",
   },
   {
     stufe: 2,
