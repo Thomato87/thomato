@@ -27,7 +27,7 @@ export function Differentiators() {
         <div className="relative mx-auto mb-10 h-[35vw] max-h-[520px] min-h-[200px] max-w-7xl overflow-hidden px-4 sm:mb-16 sm:px-6 md:px-12 lg:px-24">
           <div className="relative h-full w-full overflow-hidden rounded-sm">
             <Image
-              src="/rtw-highway.png"
+              src="/rtw-highway.jpg"
               alt="Rettungswagen auf der Autobahn"
               fill
               className="object-cover object-[center_35%]"
