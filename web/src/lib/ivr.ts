@@ -110,7 +110,7 @@ export const VERANSTALTUNGSARTEN: Veranstaltungsart[] = [
   { id: "stadtteilfest", label: "Stadtteilfest", faktor: 0.4 },
   { id: "strassenfest", label: "Strassenfest", faktor: 0.4 },
   { id: "tanzsportveranstaltung", label: "Tanzsportveranstaltung", faktor: 0.3 },
-  { id: "volksfest", label: "Volksfest", faktor: 0.4 },
+  { id: "volksfest", label: "Volksfest, Dorffest, Chilbi", faktor: 0.4 },
   { id: "volkslauf", label: "Volkslauf", faktor: 0.3 },
   { id: "weihnachtsmarkt", label: "Weihnachtsmarkt", faktor: 0.3 },
 ];

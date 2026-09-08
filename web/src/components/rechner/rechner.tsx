@@ -118,7 +118,7 @@ export function Rechner({ kopf }: { kopf?: React.ReactNode }) {
             <AuswahlFeld
               id="art"
               label="Um was für eine Veranstaltung geht es?"
-              hinweis="Wählen Sie, was am ehesten passt. Die Richtlinie rechnet jede Art unterschiedlich stark an: ein Reitturnier zählt am wenigsten, ein Rockkonzert am meisten. Wenn nichts passt, nehmen Sie die allgemeine Veranstaltung."
+              hinweis="Wählen Sie, was am ehesten passt. Die Richtlinie rechnet jede Art unterschiedlich stark an: ein Reitturnier zählt am wenigsten, ein Rockkonzert am meisten. Ein Dorffest oder eine Chilbi zählt als Volksfest. Wenn nichts passt, nehmen Sie die allgemeine Veranstaltung."
               wert={eingaben.art}
               onWert={(v) => setzen("art", v)}
               optionen={VERANSTALTUNGSARTEN}

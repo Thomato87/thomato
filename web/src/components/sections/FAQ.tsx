@@ -1,5 +1,4 @@
 import { ChevronDown } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/lib/motion";
 import { brand } from "@/data/brand";
 
@@ -14,12 +13,7 @@ export function FAQ() {
     <section id="faq" className="border-y border-border bg-muted/30">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-28 md:px-12 lg:px-24">
         <FadeIn className="mb-10 grid grid-cols-1 gap-4 sm:mb-16 sm:gap-8 md:grid-cols-2 md:items-end">
-          <div className="flex flex-col gap-3">
-            <Badge variant="outline" className="eyebrow w-fit">
-              FAQ
-            </Badge>
-            <h2 className="display-lg">Häufige Fragen.</h2>
-          </div>
+          <h2 className="display-lg">Häufige Fragen.</h2>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
             Nicht dabei? Schreiben Sie mir, ich antworte persönlich, in der Regel am selben Werktag.
           </p>

@@ -26,7 +26,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { FadeIn } from "@/lib/motion";
 import { brand } from "@/data/brand";
@@ -105,9 +104,6 @@ Anlass, Datum und Ort: `
         {/* Left – info */}
         <FadeIn className="flex flex-col gap-10">
           <div className="flex flex-col gap-3">
-            <Badge variant="outline" className="eyebrow w-fit">
-              Kontakt
-            </Badge>
             <h2 className="display-lg">
               Jetzt unverbindlich anfragen.
             </h2>

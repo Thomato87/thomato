@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { FadeIn, Stagger, StaggerItem } from "@/lib/motion";
 import { brand } from "@/data/brand";
 
@@ -10,9 +9,6 @@ export function Process() {
         {/* Header */}
         <FadeIn className="mb-10 grid grid-cols-1 gap-4 sm:mb-20 sm:gap-8 md:grid-cols-2 md:items-end">
           <div className="flex flex-col gap-3">
-            <Badge variant="outline" className="eyebrow w-fit">
-              Prozess
-            </Badge>
             <h2 className="display-lg">
               In drei Schritten zu Ihrer Lösung.
             </h2>

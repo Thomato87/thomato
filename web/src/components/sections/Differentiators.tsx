@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { FadeIn, Stagger, StaggerItem } from "@/lib/motion";
 import { brand } from "@/data/brand";
@@ -11,9 +10,6 @@ export function Differentiators() {
         {/* Header */}
         <FadeIn className="mb-10 grid grid-cols-1 gap-4 sm:mb-16 sm:gap-8 md:grid-cols-2 md:items-end">
           <div className="flex flex-col gap-3">
-            <Badge variant="outline" className="eyebrow w-fit">
-              Warum Thomato
-            </Badge>
             <h2 className="display-lg">Der Unterschied zählt.</h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:text-right">
