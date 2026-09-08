@@ -134,12 +134,6 @@ export const rechner = {
     zweit: { label: "Alle Leistungen ansehen", href: "/#sicherheit" },
   },
 
-  /** Kurzer Block auf der Startseite. */
-  startseite: {
-    titel: "Wie viel Sanitätsdienst braucht Ihre Veranstaltung?",
-    text: "Kostenloser Rechner nach dem Punkteschema der IVR-Richtlinie. Ausbaustufe, Personalbedarf und vollständiger Rechenweg in zwei Minuten, ohne Anmeldung.",
-    cta: "Rechner öffnen",
-  },
 } as const;
 
 export const rechnerUrl = `${brand.meta.url}${rechner.pfad}`;
