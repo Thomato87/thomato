@@ -102,7 +102,8 @@ export default function DatenschutzPage() {
             [&_ul]:text-muted-foreground [&_ul]:mb-4 [&_ul]:pl-5 [&_ul]:list-disc [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-1
             [&_li]:leading-relaxed
             [&_strong]:text-foreground [&_strong]:font-medium
-            [&_a]:text-brand [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-foreground"
+            [&_a]:text-brand [&_a]:underline [&_a]:underline-offset-4 [&_a:hover]:text-foreground
+            [&_a]:break-words"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
