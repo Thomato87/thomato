@@ -1,7 +1,14 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import fontkit from "@pdf-lib/fontkit";
-import { PDFDocument, rgb, type PDFFont, type PDFPage, type RGB } from "pdf-lib";
+import {
+  LineCapStyle,
+  PDFDocument,
+  rgb,
+  type PDFFont,
+  type PDFPage,
+  type RGB,
+} from "pdf-lib";
 import {
   EINSATZLEITUNG_TEXT,
   STUFEN,
@@ -30,6 +37,87 @@ const GEDAEMPFT = rgb(0.42, 0.45, 0.5);
 const MARKE = rgb(0, 0.306, 0.769); // Markenblau #004ec4
 const LINIE = rgb(0.84, 0.86, 0.89);
 const FLAECHE = rgb(0.93, 0.95, 0.99);
+
+/**
+ * Wortmarke, Geometrie wörtlich aus `components/ui/logo.tsx` übernommen.
+ *
+ * Sie wird gezeichnet, nicht als Bild eingebettet: so bleibt sie in jeder
+ * Grösse scharf, das PDF bleibt klein, und eine Änderung am Logo muss nur an
+ * zwei Stellen nachgezogen werden statt in einer neu exportierten Bilddatei.
+ *
+ * Das SVG-Koordinatensystem zählt y nach unten, PDF nach oben. Umgerechnet
+ * wird mit `py = y0 + (VB_MAX_Y - sy) * k`.
+ */
+const WORTMARKE = {
+  vbX: -318,
+  vbBreite: 376,
+  vbMaxY: 2, // viewBox minY -82 plus Höhe 84
+  vbHoehe: 84,
+  schriftgrad: 100,
+  laufweite: -4,
+  text: "thomat",
+  // Die Tomate ersetzt das letzte "o".
+  frucht: { cx: 27, cy: -27, r: 21.5, staerke: 11 },
+  // Stiel und die zwei Blätter, in Markenblau.
+  sprossen: [
+    [27, -50.7, 27, -65.2],
+    [25.7, -62.6, 8.6, -71.8],
+    [28.3, -62.6, 45.4, -71.8],
+  ] as const,
+  sprossenStaerke: 11,
+} as const;
+
+/**
+ * Bildmarke, Geometrie wörtlich aus `components/ui/logo.tsx`, viewBox "10 1 44 63".
+ * Die Frucht als offener Ring, darüber Stiel und zwei Blätter.
+ */
+const BILDMARKE = {
+  frucht: { cx: 32, cy: 41, r: 18, staerke: 5 },
+  sprossen: [
+    [32, 23, 32, 12],
+    [31, 14, 18, 7],
+    [33, 14, 46, 7],
+  ] as const,
+  sprossenStaerke: 5,
+} as const;
+
+/**
+ * Legt den Spross gross und blass in den Seitenhintergrund.
+ *
+ * Muss gezeichnet werden, **bevor** Inhalt auf die Seite kommt: pdf-lib hängt
+ * Zeichenbefehle in Aufrufreihenfolge an, es gibt kein Voranstellen. Deshalb
+ * ruft `Satz` das hier beim Anlegen jeder Seite auf und nicht am Schluss.
+ */
+function wasserzeichen(seite: PDFPage) {
+  const m = BILDMARKE;
+  const k = 9.1;
+  // Die Marke misst in ihrem Koordinatensystem 41 mal 57 Einheiten, Strichstärke
+  // eingerechnet. Ihre Mitte liegt bei (32, 33). Die wird auf die Seitenmitte
+  // gelegt, leicht über der Höhenmitte, damit unten Luft für den Fuss bleibt.
+  const ox = A4.breite / 2 - 32 * k;
+  const oy = 430 + 33 * k;
+  const px = (sx: number) => ox + sx * k;
+  const py = (sy: number) => oy - sy * k;
+
+  seite.drawCircle({
+    x: px(m.frucht.cx),
+    y: py(m.frucht.cy),
+    size: m.frucht.r * k,
+    borderColor: TINTE,
+    borderWidth: m.frucht.staerke * k,
+    borderOpacity: 0.05,
+  });
+  for (const [ax, ay, bx, by] of m.sprossen) {
+    seite.drawLine({
+      start: { x: px(ax), y: py(ay) },
+      end: { x: px(bx), y: py(by) },
+      thickness: m.sprossenStaerke * k,
+      color: MARKE,
+      opacity: 0.06,
+      lineCap: LineCapStyle.Round,
+    });
+  }
+}
 
 type Schriften = { leicht: PDFFont; normal: PDFFont };
 
@@ -67,8 +155,15 @@ class Satz {
   constructor(doc: PDFDocument, f: Schriften) {
     this.doc = doc;
     this.f = f;
-    this.seite = doc.addPage([A4.breite, A4.hoehe]);
+    this.seite = this.neueSeite();
     this.y = A4.hoehe - RAND;
+  }
+
+  /** Einziger Ort, an dem Seiten entstehen. Legt den Hintergrund gleich mit an. */
+  private neueSeite(): PDFPage {
+    const seite = this.doc.addPage([A4.breite, A4.hoehe]);
+    wasserzeichen(seite);
+    return seite;
   }
 
   /** Hält einen Block zusammen: bricht vorher um, wenn er nicht mehr passt. */
@@ -78,7 +173,7 @@ class Satz {
 
   private platz(hoehe: number) {
     if (this.y - hoehe < RAND + 28) {
-      this.seite = this.doc.addPage([A4.breite, A4.hoehe]);
+      this.seite = this.neueSeite();
       this.y = A4.hoehe - RAND;
     }
   }
@@ -125,6 +220,64 @@ class Satz {
       this.y -= groesse;
       this.seite.drawText(zeile, { x, y: this.y, size: groesse, font, color: farbe });
       this.y -= zh - groesse;
+    }
+  }
+
+  /**
+   * Setzt die Wortmarke an der aktuellen Position, linksbündig am Rand.
+   *
+   * `hoehe` meint die volle Höhe der viewBox, also einschliesslich der Blätter
+   * über der Frucht, nicht die Schriftgrösse.
+   */
+  wortmarke(hoehe: number, farbe: RGB = TINTE) {
+    const w = WORTMARKE;
+    const k = hoehe / w.vbHoehe;
+    this.platz(hoehe);
+    this.y -= hoehe;
+    const x0 = RAND;
+    const y0 = this.y;
+    const px = (sx: number) => x0 + (sx - w.vbX) * k;
+    const py = (sy: number) => y0 + (w.vbMaxY - sy) * k;
+
+    // "thomat". pdf-lib kennt keine Laufweite, also Buchstabe für Buchstabe.
+    const grad = w.schriftgrad * k;
+    const spatium = w.laufweite * k;
+    const zeichen = [...w.text];
+    const breiten = zeichen.map((z) => this.f.normal.widthOfTextAtSize(z, grad));
+    // Rechtsbündig an sx = 0. Der Browser rechnet die Laufweite auch hinter dem
+    // letzten Zeichen mit, sonst sässe die Frucht 4 Einheiten zu weit links.
+    const vorschub = breiten.reduce((a, b) => a + b, 0) + spatium * zeichen.length;
+    let x = px(0) - vorschub;
+    const grundlinie = py(0);
+    for (let i = 0; i < zeichen.length; i++) {
+      this.seite.drawText(zeichen[i], {
+        x,
+        y: grundlinie,
+        size: grad,
+        font: this.f.normal,
+        color: farbe,
+      });
+      x += breiten[i] + spatium;
+    }
+
+    // Die Frucht, ein offener Ring in der Tinte der Wortmarke.
+    this.seite.drawCircle({
+      x: px(w.frucht.cx),
+      y: py(w.frucht.cy),
+      size: w.frucht.r * k,
+      borderColor: farbe,
+      borderWidth: w.frucht.staerke * k,
+    });
+
+    // Stiel und Blätter, immer in Markenblau.
+    for (const [ax, ay, bx, by] of w.sprossen) {
+      this.seite.drawLine({
+        start: { x: px(ax), y: py(ay) },
+        end: { x: px(bx), y: py(by) },
+        thickness: w.sprossenStaerke * k,
+        color: MARKE,
+        lineCap: LineCapStyle.Round,
+      });
     }
   }
 
@@ -280,8 +433,8 @@ export async function baueRechnerPdf(
   });
 
   // ─── Kopf ───────────────────────────────────────────────────────────────
-  s.text("thomato", { groesse: 16, font: f.leicht, farbe: TINTE });
-  s.luft(2);
+  s.wortmarke(15);
+  s.luft(6);
   s.text("Sanitätsdienst-Rechner", { groesse: 8.5, farbe: GEDAEMPFT });
   s.luft(10);
   s.linie(TINTE, 1);
@@ -451,6 +604,13 @@ export async function baueRechnerPdf(
       { groesse: 8.5, farbe: GEDAEMPFT },
     );
   }
+
+  // ─── Angebot ────────────────────────────────────────────────────────────
+  s.luft(24);
+  s.kasten("Für das ausgeschriebene Konzept nehmen Sie mit Thomato Kontakt auf", [
+    "Dieses Dokument nennt die Ausbaustufe und den Bedarf an Personal und Mitteln. Was eine Bewilligungsbehörde verlangt, ist in aller Regel mehr: ein ausgeschriebenes Sanitätskonzept mit Lageplan und Standort des Sanitätspostens, Alarmierungsablauf, freizuhaltenden Zufahrten für die Rettungsmittel, der Absprache mit dem regionalen Rettungsdienst und der Polizei sowie einer Risikobeurteilung, die auf Ihre Veranstaltung passt.",
+    "Genau das erstellt Thomato für Sie, ausgehend von dieser Berechnung. Ein Sanitätskonzept kostet je nach Umfang der Veranstaltung CHF 450 bis 900. Schreiben Sie an info@thomato.ch oder über das Formular auf thomato.ch.",
+  ]);
 
   // ─── Fuss auf jeder Seite ───────────────────────────────────────────────
   const seiten = doc.getPages();
