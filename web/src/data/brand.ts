@@ -129,9 +129,10 @@ export const brand = {
   description:
     "Websites und Fachanwendungen für Betriebe im Gesundheitswesen und Konzepte für die Notfallorganisation – beides aus der Praxis des aktiven Rettungsdienstes.",
   established: 2026,
-  location: "Schweiz",
-  serviceArea:
-    "Regionale Gemeinden, Unternehmen und medizinische Betriebe in der Schweiz",
+  location: "Luterbach SO",
+  region: "Region Solothurn, Grenchen und Biel",
+  /** Orte für `areaServed` im Schema; sichtbar steht die Region im Kontakt und im Fuss. */
+  serviceArea: ["Luterbach", "Solothurn", "Grenchen", "Biel", "Bern"],
 
   contact: {
     owner: "Michael Thoma",
@@ -145,7 +146,7 @@ export const brand = {
   },
 
   /** Last review date of Impressum and Datenschutzerklärung. */
-  legalUpdated: "7. September 2026",
+  legalUpdated: "8. September 2026",
 
   nav: [
     { label: "Software", href: "#software" },
@@ -163,7 +164,7 @@ export const brand = {
   },
 
   trust: [
-    { label: "Rettungsdienst-Erfahrung", detail: "Aus aktiven Einsätzen" },
+    { label: "Rettungsdienst-Erfahrung", detail: "Aus über 15 Jahren Dienst" },
     { label: "Software aus der Praxis", detail: "Kein Branchenfremder" },
     { label: "Eine Ansprechperson", detail: "Kein Ticketsystem" },
     { label: "Schweizer Standard", detail: "IVR-Richtlinien & DSG" },
@@ -241,7 +242,7 @@ export const brand = {
     {
       title: "Echte Rettungsdienst-Erfahrung",
       description:
-        "Unsere Leistungen basieren nicht auf Theorie, sondern auf jahrelanger Praxis im aktiven Rettungsdienst. Das macht den Unterschied – besonders wenn es darauf ankommt.",
+        "Unsere Leistungen basieren nicht auf Theorie, sondern auf über 15 Jahren Praxis im Rettungsdienst. Das merkt man jedem Konzept und jeder Anwendung an.",
     },
     {
       title: "Software, die den Betrieb schon kennt",
@@ -262,7 +263,7 @@ export const brand = {
 
   faqs: [
     {
-      question: "Führt ihr den Sanitätsdienst an unserem Anlass auch durch?",
+      question: "Führen Sie den Sanitätsdienst an unserem Anlass auch durch?",
       answer:
         "Nein. Wir erstellen das Konzept und bemessen den Bedarf nach der Richtlinie des Interverbands für Rettungswesen. Für die Durchführung sagen wir Ihnen, welche Anbieter in der Region dafür in Frage kommen.",
     },
@@ -288,16 +289,27 @@ export const brand = {
         "Das hängt vom Umfang ab. Wir starten mit einem kostenlosen Erstgespräch und einer Aufwandschätzung in Etappen. Nach jeder Etappe entscheiden Sie, ob es weitergeht – keine Pauschale ins Blaue.",
     },
     {
-      question: "Übernehmt ihr auch Wartung und Weiterentwicklung?",
+      question: "Übernehmen Sie auch Wartung und Weiterentwicklung?",
       answer:
         "Ja. Eine Applikation ist mit dem Launch nicht fertig. Wartung, Support und Weiterentwicklung gibt es als monatliche Vereinbarung oder auf Abruf.",
     },
     {
-      question: "Übernehmt ihr auch die Koordination mit Behörden?",
+      question: "Übernehmen Sie auch die Koordination mit Behörden?",
       answer:
         "Ja. Auf Wunsch unterstützen wir Sie bei der Kommunikation mit Gemeinden, Polizei und Rettungsdiensten sowie bei der Erstellung behördenkonformer Sicherheitskonzepte.",
     },
   ],
+
+  /**
+   * Die Person hinter der Marke. Bewusst ohne Arbeitgeber und ohne Titel der
+   * Dienststelle; das kommt erst nach dem Entscheid des Personalamts dazu.
+   */
+  person: {
+    name: "Michael Thoma",
+    role: "Rettungssanitäter, seit über 15 Jahren im Dienst, heute in leitender Funktion",
+    summary:
+      "Dienstpläne, Materialkontrollen, Konzepte für Anlässe, Gespräche mit Gemeinden und Polizei: Das ist mein Alltag, nicht meine Theorie. Thomato ist der Teil davon, den ich für Sie planen und bauen kann.",
+  },
 
   /** Grouped options for the contact form select – mirrors the two pillars. */
   serviceGroups: [
@@ -326,11 +338,12 @@ export const brand = {
   ],
 
   meta: {
-    title: "Thomato – Digitale Lösungen & Notfallorganisation",
+    // Titel und Beschreibung tragen die Suchbegriffe und den Ort. Beides wird
+    // in den Suchergebnissen abgeschnitten: Titel ab rund 60 Zeichen,
+    // Beschreibung ab rund 155.
+    title: "Sanitätskonzept & Website für Praxen | Thomato Solothurn",
     description:
-      "Websites und Fachanwendungen für Praxen, Rettungsdienste und Pflegebetriebe – und Sanitäts-, Sicherheits- und Notfallkonzepte für Veranstalter und Gemeinden in der Schweiz.",
-    keywords:
-      "Web-Applikation, Praxissoftware, Praxis-Website, Dienstplanung, Materialverwaltung, Fachanwendung, Wartung im Abonnement, Datenschutz Arztpraxis, Schweiz, Sanitätskonzept, Sicherheitskonzept, Notfallorganisation, Ersthelferorganisation, IVR-Richtlinie, Anlassbewilligung",
+      "Sanitätskonzept nach IVR-Richtlinie für Ihren Anlass, Website und Fachanwendung für Ihre Praxis. Aus der Praxis, für Solothurn, Grenchen und Biel.",
     url: "https://thomato.ch",
   },
 } as const;

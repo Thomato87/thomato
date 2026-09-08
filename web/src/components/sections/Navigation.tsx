@@ -39,7 +39,7 @@ export function Navigation() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-10 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex xl:gap-10">
           {brand.nav.map((item) => (
             <li key={item.href}>
               <Link
@@ -53,7 +53,7 @@ export function Navigation() {
         </ul>
 
         {/* Desktop right: theme toggle + CTA */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <ModeToggle />
           <Button asChild size="sm">
             <Link href="#kontakt">{brand.hero.cta.primary}</Link>
@@ -61,7 +61,7 @@ export function Navigation() {
         </div>
 
         {/* Mobile: theme toggle + hamburger */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <ModeToggle />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>

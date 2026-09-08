@@ -6,6 +6,7 @@ import { Services } from "@/components/sections/Services";
 import { RechnerHinweis } from "@/components/sections/RechnerHinweis";
 import { Process } from "@/components/sections/Process";
 import { Differentiators } from "@/components/sections/Differentiators";
+import { Person } from "@/components/sections/Person";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
@@ -39,6 +40,7 @@ export default function Home() {
         <RechnerHinweis />
         <Process />
         <Differentiators />
+        <Person />
         <Contact />
         <FAQ />
       </main>

@@ -106,7 +106,7 @@ export function Contact() {
             </a>
             <div className="flex items-center gap-3 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 shrink-0 text-brand" />
-              {brand.location}
+              {brand.location}, {brand.region}
             </div>
           </div>
         </FadeIn>
@@ -216,7 +216,7 @@ export function Contact() {
                       <FormLabel className="eyebrow text-xs">Nachricht *</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Beschreiben Sie kurz Ihren Bedarf – bei Einsätzen Art, Datum und erwartete Teilnehmerzahl, bei Software den Ablauf, der Ihnen heute Mühe macht…"
+                          placeholder="Beschreiben Sie kurz Ihren Bedarf: bei Veranstaltungen Art, Datum und erwartete Besucherzahl, bei Software den Ablauf, der Ihnen heute Mühe macht."
                           className="min-h-32 resize-none"
                           {...field}
                         />

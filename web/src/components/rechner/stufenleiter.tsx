@@ -175,10 +175,6 @@ export function Stufenleiter({
           Risikopunkte sind der Rechenwert aus Ihren Angaben nach der Formel von
           Maurer. Je mehr Punkte, desto höher die Stufe.
         </p>
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          Das Ergebnis ist eine Empfehlung und muss mit dem regionalen
-          Rettungsdienst und Ihrer Gemeinde abgestimmt werden.
-        </p>
       </div>
     </div>
   );

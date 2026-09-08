@@ -155,16 +155,60 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Geist liegt als Variable am body, Tailwind v4 wendet sie aber nicht
+       von selbst an: `--font-sans` in `@theme inline` erzeugt keine
+       CSS-Variable, die der Browser sehen könnte. Ohne diese Zeile rendert
+       die ganze Seite in der Systemschrift und lädt Geist umsonst. */
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   html {
     scroll-behavior: smooth;
+  }
+  /* Ein Fokusring für die ganze Seite. Vorher hatte der Rechner seinen
+     eigenen und die Startseite den Tailwind-Standard. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 }
 
 /* ─── Custom cursor — hide native on fine-pointer (mouse) devices ───── */
 @media (pointer: fine) {
   *, *::before, *::after { cursor: none !important; }
+  /* Beim Tippen braucht es die Einfügemarke, sonst tippt man blind. */
+  input:not([type="radio"]):not([type="checkbox"]),
+  textarea { cursor: text !important; }
+}
+
+/* ─── Hero ──────────────────────────────────────────────────────────── */
+/* Die Überschrift ist von der ersten Farbe an sichtbar und setzt sich nur
+   noch; vorher stand sie per Inline-Transform bis zur Hydration ausserhalb
+   des Rahmens. */
+@keyframes hero-rise {
+  from { opacity: .35; transform: translateY(.35em); filter: blur(6px); }
+  to   { opacity: 1;   transform: none;              filter: blur(0); }
+}
+.hero-line {
+  animation: hero-rise .95s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--hero-delay, 0s);
+}
+@keyframes hero-strip {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-strip {
+  animation: hero-strip .7s cubic-bezier(0.16, 1, 0.3, 1) .72s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line, .hero-strip { animation: none; }
+  /* Das Blaulicht bleibt, aber es steht: ein Schein statt Blitze. Wer
+     „Bewegung reduzieren" gesetzt hat, bekommt dieselbe Szene ohne Takt. */
+  .bl-glow, .bl-wash, .bl-road, .bl-horizon { animation: none !important; }
+  .bl-glow    { opacity: .38 !important; }
+  .bl-wash    { opacity: .12 !important; }
+  .bl-horizon { opacity: .4  !important; }
 }
 
 /* ─── Marquee ───────────────────────────────────────────────────────── */
@@ -318,11 +362,6 @@
 
 .rechner-seite * {
   caret-color: var(--brand);
-}
-
-.rechner-seite :focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
 }
 
 .rechner-seite a {

@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     template: `%s | ${brand.name}`,
   },
   description: brand.meta.description,
-  keywords: brand.meta.keywords,
   metadataBase: new URL(brand.meta.url),
   alternates: { canonical: "/" },
   openGraph: {
@@ -60,7 +59,13 @@ const jsonLd = {
     addressLocality: brand.contact.city,
     addressCountry: "CH",
   },
-  areaServed: brand.serviceArea,
+  image: `${brand.meta.url}/opengraph-image`,
+  areaServed: brand.serviceArea.map((ort) => ({ "@type": "City", name: ort })),
+  founder: {
+    "@type": "Person",
+    name: brand.person.name,
+    jobTitle: "Rettungssanitäter",
+  },
   foundingDate: brand.established.toString(),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -79,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" suppressHydrationWarning>
+    <html lang="de-CH" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

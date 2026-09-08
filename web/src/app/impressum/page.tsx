@@ -6,6 +6,7 @@ import { brand } from "@/data/brand";
 export const metadata: Metadata = {
   title: "Impressum",
   robots: { index: false, follow: false },
+  alternates: { canonical: "/impressum" },
 };
 
 const sections = [
@@ -44,34 +45,17 @@ const sections = [
     ),
   },
   {
-    title: "Streitbeilegung",
-    content: (
-      <p className="text-muted-foreground">
-        Online-Plattform der Europäischen Kommission zur Streitbeilegung (OS) für Verbraucher:{" "}
-        <a
-          href="https://ec.europa.eu/consumers/odr/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-foreground underline underline-offset-4 hover:text-brand transition-colors break-all"
-        >
-          https://ec.europa.eu/consumers/odr/
-        </a>
-        . Wir sind nicht bereit und verpflichtet, an einem Streitschlichtungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-      </p>
-    ),
-  },
-  {
     title: "Haftungsausschluss",
     content: (
       <div className="flex flex-col gap-4 text-muted-foreground">
         <p>
-          Der Autor behält sich das Recht vor, keine Verantwortung für die Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen zu übernehmen.
+          Thomato behält sich das Recht vor, keine Verantwortung für die Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen zu übernehmen.
         </p>
         <p>
           Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.
         </p>
         <p>
-          Alle Angebote sind freibleibend und unverbindlich. Der Autor behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.
+          Alle Angebote sind freibleibend und unverbindlich. Thomato behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.
         </p>
       </div>
     ),
@@ -80,7 +64,7 @@ const sections = [
     title: "Haftung für Links",
     content: (
       <p className="text-muted-foreground">
-        Verweise und Links auf Webseiten Dritter liegen außerhalb unseres Verantwortungsbereiches. Jegliche Verantwortung für solche Websites wird abgelehnt. Der Zugang und die Benutzung solcher Websites erfolgt auf eigenes Risiko des Benutzers.
+        Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereiches. Jegliche Verantwortung für solche Websites wird abgelehnt. Der Zugang und die Benutzung solcher Websites erfolgt auf eigenes Risiko des Benutzers.
       </p>
     ),
   },
@@ -88,7 +72,7 @@ const sections = [
     title: "Urheberrechte",
     content: (
       <p className="text-muted-foreground">
-        Das Urheberrecht und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschließlich {brand.contact.owner} oder den speziell genannten Rechteinhabern. Für die Reproduktion jeglicher Elemente muss im Voraus die schriftliche Zustimmung der Urheberrechtsinhaber eingeholt werden.
+        Das Urheberrecht und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf der Website gehören ausschliesslich {brand.contact.owner} oder den speziell genannten Rechteinhabern. Für die Reproduktion jeglicher Elemente muss im Voraus die schriftliche Zustimmung der Urheberrechtsinhaber eingeholt werden.
       </p>
     ),
   },

@@ -304,9 +304,7 @@ export function Befund({ auswertung }: { auswertung: Auswertung }) {
         </p>
       </div>
       <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
-        Das ist eine Empfehlung, keine Vorgabe. Sie gehört mit dem regionalen
-        Rettungsdienst und Ihrer Gemeinde besprochen, bevor Sie damit planen.
-        Was das genau heisst, steht unter der Aufstellung.
+        Was dieses Ergebnis ist und was nicht, steht unter der Aufstellung.
       </p>
     </div>
   );

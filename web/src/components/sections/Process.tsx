@@ -52,7 +52,7 @@ export function Process() {
 
                   <ul className="mt-1 flex flex-col gap-1.5 border-t border-border pt-4">
                     {step.items.map((item, j) => (
-                      <li key={j} className="text-xs text-muted-foreground/70">
+                      <li key={j} className="text-xs text-muted-foreground">
                         {item}
                       </li>
                     ))}
