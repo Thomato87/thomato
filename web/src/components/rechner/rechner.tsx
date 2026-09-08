@@ -88,7 +88,7 @@ export function Rechner({ kopf }: { kopf?: React.ReactNode }) {
       ) : null}
 
       {/* ─── Leiter ─────────────────────────────────────────────────────── */}
-      <aside className="min-w-0 lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1 lg:self-start">
+      <aside className="min-w-0 lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1">
         <div className="lg:sticky lg:top-10">
           <Stufenleiter
             stufe={auswertung.stufe}
