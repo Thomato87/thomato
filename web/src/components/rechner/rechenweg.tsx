@@ -157,12 +157,12 @@ export function Rechenweg({ auswertung }: { auswertung: Auswertung }) {
           <p className="text-sm font-medium text-foreground">
             Vom Punktwert zur Ausbaustufe, Ziff. 4.3.4
           </p>
-          <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
             Bis 2 Punkte Stufe 0, bis 4 Punkte Stufe 1, ab 4 Punkten mindestens
             Stufe 2, mehr als 30 Punkte Stufe 3. Ihre{" "}
             {formatPunkte(maurer.gesamt)} Punkte ergeben Stufe {maurer.stufe}.
           </p>
-          <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
             Der Bedarf an Personal und Mitteln stammt aus Anhang 4, wo jedem
             Punktebereich eine Besetzung zugeordnet ist.
           </p>

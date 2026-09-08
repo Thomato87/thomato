@@ -306,6 +306,15 @@ export function Hero() {
           ))}
         </h1>
 
+        {/* Die Unterzeile nennt beide Angebote im ersten Bild; die Überschrift
+            allein ist ein Claim und verkauft nichts. */}
+        <p
+          className="hero-line display-md mt-6 max-w-2xl text-[#001438]/85 dark:text-[#c4deff]/90"
+          style={{ "--hero-delay": "0.5s" } as CSSProperties}
+        >
+          {brand.hero.sub}
+        </p>
+
         <div className="hero-strip mt-6 border-t border-brand/20 pt-6 sm:mt-10 sm:pt-8">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-start">
             <p className="max-w-sm text-sm leading-relaxed text-[#001438]/75 dark:text-[#c4deff]/85">

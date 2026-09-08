@@ -15,13 +15,18 @@ import { rechner, rechnerUrl } from "@/data/rechner";
 export const metadata: Metadata = {
   title: rechner.titel,
   description: rechner.beschreibung,
-  keywords: rechner.schluesselwoerter,
   alternates: { canonical: rechner.pfad },
   openGraph: {
     type: "website",
     locale: "de_CH",
     url: rechnerUrl,
     siteName: brand.name,
+    title: rechner.titel,
+    description: rechner.beschreibung,
+  },
+  // Sonst erbt X das Bild und die Beschreibung der Startseite.
+  twitter: {
+    card: "summary_large_image",
     title: rechner.titel,
     description: rechner.beschreibung,
   },
@@ -114,7 +119,24 @@ export default function SanitaetsdienstRechnerSeite() {
 
       <footer className="mt-16 border-t border-border">
         <div className="mx-auto max-w-6xl space-y-4 px-4 py-10 sm:px-6">
-          <p className="max-w-[70ch] text-sm leading-relaxed text-muted-foreground">
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Fragen zum Ergebnis?{" "}
+            <a
+              href={`tel:${brand.contact.phoneHref}`}
+              className="text-foreground underline decoration-border hover:decoration-brand"
+            >
+              {brand.contact.phone}
+            </a>{" "}
+            oder{" "}
+            <a
+              href={`mailto:${brand.contact.email}`}
+              className="text-foreground underline decoration-border hover:decoration-brand"
+            >
+              {brand.contact.email}
+            </a>
+            .
+          </p>
+          <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
             Grundlage sind die «{rechner.quelle.titel}», {rechner.quelle.ausgabe},
             herausgegeben vom{" "}
             <a
@@ -130,7 +152,7 @@ export default function SanitaetsdienstRechnerSeite() {
             Ziff. 4.3 verlangt. Laienhelfer heissen hier Samariter, und der
             Krankentransportwagen KTW wird nicht ausgewiesen.
           </p>
-          <p className="max-w-[70ch] text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
             Ihre Angaben bleiben in Ihrem Browser. Sie werden nicht gespeichert,
             nicht übertragen und nicht ausgewertet, solange Sie das Ergebnis
             nicht selbst per Mail anfordern.

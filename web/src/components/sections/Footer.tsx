@@ -4,6 +4,7 @@ import { brand } from "@/data/brand";
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import { LogoWordmark } from "@/components/ui/logo";
 import { ContoursCanvas } from "@/components/ui/contours-canvas";
 import { openConsentSettings } from "@/lib/consent";
@@ -82,7 +83,7 @@ export function Footer() {
                 <span className="truncate">{brand.contact.email}</span>
               </a>
               <a
-                href={`tel:${brand.contact.phone}`}
+                href={`tel:${brand.contact.phoneHref}`}
                 className="group flex items-center gap-3 text-sm text-foreground/65 transition-all duration-300 hover:text-foreground"
               >
                 <Phone className="h-4 w-4 flex-shrink-0 transition-colors group-hover:text-brand" />
@@ -108,13 +109,12 @@ export function Footer() {
                 selben Werktag.
               </p>
             </div>
-            <Link
-              href="#kontakt"
-              className="group inline-flex items-center justify-center gap-2 rounded-lg border border-brand/30 bg-brand/10 px-4 py-3 text-sm font-medium text-brand transition-colors duration-300 hover:border-brand/60 hover:bg-brand/15"
-            >
-              Anfrage stellen
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <Button asChild size="lg" className="group w-full sm:w-auto">
+              <Link href="#kontakt">
+                Anfrage stellen
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </div>
         </div>
 

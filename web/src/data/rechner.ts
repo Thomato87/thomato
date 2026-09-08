@@ -16,7 +16,7 @@ export const rechner = {
 
   titel: "Sanitätsdienst berechnen für Ihre Veranstaltung",
   beschreibung:
-    "Berechnen Sie in zwei Minuten, wie viel Sanitätsdienst Ihre Veranstaltung braucht. Kostenloses Werkzeug nach dem Punkteschema der IVR-Richtlinie für Sanitätsdienste bei Veranstaltungen.",
+    "Wie viel Sanitätsdienst braucht Ihr Anlass? Kostenloser Rechner nach IVR-Richtlinie: Ausbaustufe, Personal und Rechenweg in zwei Minuten.",
   schluesselwoerter:
     "Sanitätsdienst berechnen, wie viele Sanitäter Veranstaltung, Sanitätsposten berechnen, Sanitätskonzept Veranstaltung, IVR Punkteschema, Sanitätsdienst Veranstaltung Schweiz, Anlassbewilligung Sanität, Samariter Anlass",
 
@@ -126,7 +126,7 @@ export const rechner = {
     titel: "Aus der Zahl ein Konzept machen",
     absaetze: [
       "Der Rechner sagt Ihnen, welche Ausbaustufe Ihr Anlass erreicht. Was die Gemeinde sehen will, ist ein Konzept, das diese Bemessung ausweist und daraus Posten, Personal, Abläufe und Alarmierung ableitet.",
-      "Genau das schreibe ich. Aus der Praxis des aktiven Rettungsdienstes, ohne Textbausteine, auf Ihre Lage geschrieben.",
+      "Genau das schreibe ich. Aus über 15 Jahren Rettungsdienst, ohne Textbausteine, auf Ihre Lage geschrieben.",
     ],
     hinweis:
       "Sanitätskonzept nach IVR-Richtlinie: CHF 450 bis 900, je nach Grösse und ob eine Begehung nötig ist.",

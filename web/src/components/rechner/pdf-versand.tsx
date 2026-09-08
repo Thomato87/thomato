@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Check, Loader2, Mail, TriangleAlert } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import type { Eingaben } from "@/lib/ivr";
 import { SchalterFeld, TextFeld } from "@/components/ui/felder";
 
@@ -187,15 +188,7 @@ export function PdfVersand({ eingaben }: { eingaben: Eingaben }) {
             </p>
           ) : null}
 
-          <button
-            type="submit"
-            disabled={zustand === "sendet"}
-            className={cn(
-              "inline-flex items-center gap-2 rounded-lg bg-brand-solid px-4 py-2.5 text-sm font-medium text-brand-solid-foreground transition-colors",
-              "hover:bg-brand-solid/90",
-              "disabled:cursor-not-allowed disabled:opacity-60",
-            )}
-          >
+          <Button type="submit" size="lg" disabled={zustand === "sendet"} className="gap-2">
             {zustand === "sendet" ? (
               <>
                 <Loader2 aria-hidden className="size-4 animate-spin" strokeWidth={2} />
@@ -204,7 +197,7 @@ export function PdfVersand({ eingaben }: { eingaben: Eingaben }) {
             ) : (
               "PDF zusenden"
             )}
-          </button>
+          </Button>
         </form>
       </div>
     </section>

@@ -69,14 +69,14 @@ export function Navigation() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-72 pt-16">
+            <SheetContent side="right" className="w-72 px-6 pt-16">
               <nav className="flex flex-col gap-2">
                 {brand.nav.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="py-3 eyebrow text-muted-foreground hover:text-foreground transition-colors"
+                    className="py-3 text-base text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {item.label}
                   </Link>

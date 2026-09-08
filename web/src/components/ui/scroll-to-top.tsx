@@ -8,15 +8,39 @@ export function ScrollToTop() {
   const { scrollYProgress } = useScroll();
   const fillOpacity = useTransform(scrollYProgress, [0.05, 0.95], [0, 1]);
 
+  // Weicht dem Kontaktformular und dem Fuss aus. Ein Schmuckknopf, der die
+  // Leistungsauswahl verdeckt, kostet genau die Anfrage, für die die Seite da ist.
+  const [imWeg, setImWeg] = useState(false);
+
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 500);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    const ziele = ["#kontakt", "footer"]
+      .map((sel) => document.querySelector(sel))
+      .filter((el): el is Element => el !== null);
+    const sichtbar = new Set<Element>();
+    const io = new IntersectionObserver(
+      (eintraege) => {
+        for (const e of eintraege) {
+          if (e.isIntersecting) sichtbar.add(e.target);
+          else sichtbar.delete(e.target);
+        }
+        setImWeg(sichtbar.size > 0);
+      },
+      { rootMargin: "0px 0px -20% 0px" },
+    );
+    ziele.forEach((el) => io.observe(el));
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      io.disconnect();
+    };
   }, []);
 
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && !imWeg && (
         <motion.button
           initial={{ opacity: 0, scale: 0.7, y: 8 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -25,10 +49,10 @@ export function ScrollToTop() {
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 z-50 drop-shadow-lg"
+          className="fixed bottom-6 right-6 z-40 drop-shadow-lg"
           aria-label="Nach oben scrollen"
         >
-          <svg viewBox="0 0 48 48" width="52" height="52" fill="none" aria-hidden>
+          <svg viewBox="0 0 48 48" width="36" height="36" fill="none" aria-hidden>
             {/* Star of Life — 3 filled rectangles at 0°, 60°, 120° */}
             <g style={{ fill: "var(--brand)" }} opacity={1}>
               {/* Unfilled outline — always visible */}

@@ -21,7 +21,7 @@ export function FAQ() {
             <h2 className="display-lg">Häufige Fragen.</h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Nicht dabei? Schreiben Sie mir, ich antworte persönlich und ohne Wartezeit.
+            Nicht dabei? Schreiben Sie mir, ich antworte persönlich, in der Regel am selben Werktag.
           </p>
         </FadeIn>
 
@@ -42,7 +42,7 @@ export function FAQ() {
                     className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"
                   />
                 </summary>
-                <p className="pb-4 pl-7 text-sm leading-relaxed text-muted-foreground sm:pl-10">
+                <p className="max-w-[60ch] pb-4 pl-7 text-sm leading-relaxed text-muted-foreground sm:pl-10">
                   {faq.answer}
                 </p>
               </details>

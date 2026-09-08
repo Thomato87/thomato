@@ -26,8 +26,7 @@ import {
   Befund,
   Gegenprobe,
   StufeNull,
-  Vorbehalt,
-} from "@/components/rechner/ergebnis";
+  Vorbehalt, AnfrageLink } from "@/components/rechner/ergebnis";
 
 function Gruppe({
   titel,
@@ -44,7 +43,7 @@ function Gruppe({
       <div className="space-y-1.5">
         <h2 className="display-md text-foreground">{titel}</h2>
         {beschreibung ? (
-          <p className="max-w-[65ch] text-base leading-relaxed text-muted-foreground">
+          <p className="max-w-[60ch] text-base leading-relaxed text-muted-foreground">
             {beschreibung}
           </p>
         ) : null}
@@ -88,7 +87,7 @@ export function Rechner({ kopf }: { kopf?: React.ReactNode }) {
       ) : null}
 
       {/* ─── Leiter ─────────────────────────────────────────────────────── */}
-      <aside className="min-w-0 lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1">
+      <aside className="hidden min-w-0 lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1 lg:block">
         <div className="lg:sticky lg:top-10">
           <Stufenleiter
             stufe={auswertung.stufe}
@@ -100,7 +99,18 @@ export function Rechner({ kopf }: { kopf?: React.ReactNode }) {
 
       {/* ─── Eingaben und Ergebnis ──────────────────────────────────────── */}
       <div className="min-w-0 space-y-12 lg:col-span-8 lg:col-start-1 lg:row-start-2">
-        <div className="space-y-10">
+        {/* Auf kleinen Schirmen steht die Leiter in der Formularspalte. Nur so
+            umfasst ihr Klebebereich die ganze Spalte; im aside oben war sie
+            nach wenigen hundert Pixeln weggescrollt. */}
+        <div className="contents lg:hidden">
+          <Stufenleiter
+            stufe={auswertung.stufe}
+            punkte={auswertung.maurer.gesamt}
+            aktiv={gerechnet}
+          />
+        </div>
+        {/* Der Abstand ersetzt, was `space-y` den durchgereichten Kindern nicht geben kann. */}
+        <div className="mt-12 space-y-10 lg:mt-0">
           <Gruppe
             titel="Ihre Veranstaltung"
             beschreibung="Zwei Angaben, die die Richtlinie unterschiedlich gewichtet: was gefeiert wird und ob es drinnen oder draussen stattfindet."
@@ -245,7 +255,7 @@ export function Rechner({ kopf }: { kopf?: React.ReactNode }) {
 
           <div className="max-w-[46rem] space-y-8 border-t border-border px-4 py-6 sm:px-5">
             <div className="space-y-4">
-              <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+              <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
                 Mitwirkende sind alle, die aktiv beteiligt sind, also Sportler,
                 Musikerinnen oder Umzugsteilnehmer. Die Dauer auf volle Stunden
                 aufrunden. Die Fahrzeit meint den Weg bis zur nächsten
@@ -304,7 +314,7 @@ export function Rechner({ kopf }: { kopf?: React.ReactNode }) {
               );
             })}
 
-            <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+            <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
               Die Fragen nach der Zahl der Mitwirkenden und der Zuschauer
               beantwortet der Rechner selbst aus Ihren Angaben oben. Sie
               erscheinen deshalb hier nicht noch einmal.
@@ -321,6 +331,7 @@ export function Rechner({ kopf }: { kopf?: React.ReactNode }) {
                 Bedarf liest und aufhört, muss ihn trotzdem gesehen haben. */}
             <Vorbehalt />
             <PdfVersand eingaben={eingaben} />
+            <AnfrageLink auswertung={auswertung} />
             {auswertung.stufe <= 1 ? <StufeNull auswertung={auswertung} /> : null}
             <Gegenprobe auswertung={auswertung} />
             <Rechenweg auswertung={auswertung} />

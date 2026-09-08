@@ -109,7 +109,7 @@ export function CookieBanner() {
                       transition={{ duration: 0.35, ease: reveal }}
                       className="overflow-hidden"
                     >
-                      <dl className="mt-2 flex flex-col divide-y divide-border border-y border-border">
+                      <dl className="mt-2 flex max-h-[45vh] flex-col divide-y divide-border overflow-y-auto border-y border-border">
                         <div className="flex items-start justify-between gap-6 py-4">
                           <div className="flex flex-col gap-1">
                             <dt className="text-sm font-medium">Notwendig</dt>

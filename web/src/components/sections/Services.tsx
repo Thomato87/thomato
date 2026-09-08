@@ -36,7 +36,7 @@ function ServiceRow({ offer }: { offer: Offer }) {
 
       <div className="px-4 pb-6 sm:px-6 sm:pb-10 md:px-12 lg:px-24">
         <div className="grid grid-cols-1 gap-6 border-t border-border pt-6 sm:gap-8 sm:pt-8 md:grid-cols-[1fr_1fr] md:gap-12">
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
             {offer.description}
           </p>
           <div className="flex flex-col gap-4">

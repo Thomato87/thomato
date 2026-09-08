@@ -71,8 +71,8 @@ const safetyOffers = [
 const digitalOffers = [
   {
     id: "01",
-    title: "Firmenwebsite",
-    subtitle: "auf Wunsch mit Terminbuchung",
+    title: "Website",
+    subtitle: "für Praxen, Rettungsdienste und Pflegebetriebe",
     description:
       "Eine Seite, die Ihre Leistungen, Öffnungszeiten und Kontaktwege sauber zeigt. Schnell, auf dem Mobilgerät lesbar, in der Schweiz gehostet. Auf Wunsch mit Terminbuchung.",
     deliverables: [
@@ -127,17 +127,19 @@ export const brand = {
   name: "Thomato",
   tagline: "Digitale Lösungen & Notfallorganisation",
   description:
-    "Websites und Fachanwendungen für Betriebe im Gesundheitswesen und Konzepte für die Notfallorganisation – beides aus der Praxis des aktiven Rettungsdienstes.",
+    "Websites und Fachanwendungen für Betriebe im Gesundheitswesen und Konzepte für die Notfallorganisation – beides aus über 15 Jahren Rettungsdienst.",
   established: 2026,
   location: "Luterbach SO",
   region: "Region Solothurn, Grenchen und Biel",
   /** Orte für `areaServed` im Schema; sichtbar steht die Region im Kontakt und im Fuss. */
-  serviceArea: ["Luterbach", "Solothurn", "Grenchen", "Biel", "Bern"],
+  serviceArea: ["Luterbach", "Solothurn", "Grenchen", "Biel"],
 
   contact: {
     owner: "Michael Thoma",
     email: "info@thomato.ch",
     phone: "+41 76 447 68 61",
+    /** Dieselbe Nummer ohne Leerzeichen, für tel:-Links. */
+    phoneHref: "+41764476861",
     street: "Fichtenweg 4",
     postalCode: "4542",
     city: "Luterbach",
@@ -159,7 +161,9 @@ export const brand = {
 
   hero: {
     headline: ["Wissen aus der Praxis.", "Für Ihr Unternehmen."],
-    body: "Websites und Fachanwendungen für Betriebe im Gesundheitswesen. Sanitäts- und Sicherheitskonzepte für Veranstalter und Gemeinden. Beides aus dem aktiven Dienst heraus.",
+    /** Die Unterzeile nennt beide Angebote im ersten Bild; die Überschrift allein tut das nicht. */
+    sub: "Websites für Praxen. Sanitätskonzepte für Anlässe.",
+    body: "Websites und Fachanwendungen für Betriebe im Gesundheitswesen. Sanitäts- und Sicherheitskonzepte für Veranstalter und Gemeinden. Beides aus über 15 Jahren Rettungsdienst.",
     cta: { primary: "Anfrage stellen", secondary: "Leistungen ansehen" },
   },
 
@@ -183,7 +187,7 @@ export const brand = {
       id: "software",
       label: "Digitale Lösungen",
       description:
-        "Websites und Anwendungen für Betriebe, die im Gesundheitswesen arbeiten. Gebaut von jemandem, der Ihre Abläufe kennt.",
+        "Websites und Anwendungen für Arztpraxen, Rettungsdienste und Pflegebetriebe. Gebaut von jemandem, der Ihre Abläufe kennt.",
       offers: digitalOffers,
     },
     {
@@ -209,10 +213,10 @@ export const brand = {
       description:
         "Schildern Sie mir Ihren Bedarf, unverbindlich und unkompliziert.",
       items: [
-        "Antwort innerhalb von 24 Stunden",
+        "Antwort in der Regel am selben Werktag",
         "Telefonisch, per E-Mail oder Formular",
       ],
-      note: "Ich antworte in der Regel noch am selben Werktag.",
+      note: "Am schnellsten geht es telefonisch.",
     },
     {
       step: "02",
@@ -221,9 +225,9 @@ export const brand = {
         "Ich analysiere Ihre Situation und erstelle ein Angebot, das dazu passt.",
       items: [
         "Risikoanalyse, Konzept- oder Projektplanung",
-        "Kostenlos und unverbindlich",
+        "Erstgespräch kostenlos und unverbindlich",
       ],
-      note: "Kostenlos und unverbindlich – auch für Standardanfragen.",
+      note: "Das Erstgespräch kostet nichts. Was danach kommt, hat einen Preis, der vorher feststeht.",
     },
     {
       step: "03",
@@ -234,7 +238,7 @@ export const brand = {
         "Konzepte schriftlich und behördentauglich",
         "Software in Etappen, jede einzeln abnehmbar",
       ],
-      note: "Schweizweit, mit einer festen Ansprechperson.",
+      note: "In der Region Solothurn, Grenchen und Biel, mit einer festen Ansprechperson.",
     },
   ],
 
@@ -296,7 +300,7 @@ export const brand = {
     {
       question: "Übernehmen Sie auch die Koordination mit Behörden?",
       answer:
-        "Ja. Auf Wunsch unterstütze ich Sie bei der Kommunikation mit Gemeinden, Polizei und Rettungsdiensten sowie bei der Erstellung behördenkonformer Sicherheitskonzepte.",
+        "Ja. Auf Wunsch unterstütze ich Sie bei der Kommunikation mit Gemeinden und Polizei sowie bei der Erstellung behördenkonformer Sicherheitskonzepte.",
     },
   ],
 
@@ -316,7 +320,7 @@ export const brand = {
     {
       label: "Digitale Lösungen",
       options: [
-        "Firmenwebsite",
+        "Website",
         "Fachanwendung",
         "Betrieb und Wartung",
         "Datenschutz",

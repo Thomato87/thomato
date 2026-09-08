@@ -1,7 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Check, Minus, TriangleAlert } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Check, Minus, TriangleAlert } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
   EINSATZLEITUNG_TEXT,
@@ -31,7 +33,7 @@ function Zeile({
         {wert}
       </dd>
       {detail ? (
-        <p className="col-span-2 -mt-0.5 max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+        <p className="col-span-2 -mt-0.5 max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
           {detail}
         </p>
       ) : null}
@@ -87,7 +89,7 @@ export function Bedarf({ auswertung }: { auswertung: Auswertung }) {
       </dl>
 
       {mittel.rettungswagen >= 1 ? (
-        <p className="max-w-[65ch] text-sm leading-relaxed text-foreground">
+        <p className="max-w-[60ch] text-sm leading-relaxed text-foreground">
           Ab einem Rettungswagen gehören die Sanitätstrupps mit Fachpersonal
           verstärkt. Die Zahl der Samariter oben deckt das nicht ab, sie zählt
           ausdrücklich ohne Personal der Rettungsdienste. Rettungssanitäter und,
@@ -98,14 +100,14 @@ export function Bedarf({ auswertung }: { auswertung: Auswertung }) {
       ) : null}
 
       {mittel.ueberTabelle ? (
-        <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+        <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
           Ihre Veranstaltung liegt mit {formatPunkte(maurer.gesamt)} Punkten über
           dem Bereich, den die Tabelle der Richtlinie abdeckt. Sie endet bei 140
           Punkten. Die ausgewiesenen Zahlen sind deshalb Untergrenzen.
         </p>
       ) : null}
 
-      <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+      <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
         Der Krankentransportwagen KTW, den die deutsche Vorlage an dieser Stelle
         ausweist, fehlt bewusst. Er ist im schweizerischen Rettungswesen keine
         eigene Kategorie. Die Richtlinie verlangt in Ziff. 4.3 ausdrücklich, die
@@ -125,7 +127,7 @@ export function StufeNull({ auswertung }: { auswertung: Auswertung }) {
       <h3 id="stufe-null-titel" className="text-base font-medium text-foreground">
         Ginge es ganz ohne Sanitätsdienst?
       </h3>
-      <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+      <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
         Die Richtlinie nennt in Ziff. 4.1 fünf Bedingungen. Nur wenn alle fünf
         gleichzeitig zutreffen, ist in der Regel kein Sanitätsdienst nötig.
       </p>
@@ -169,12 +171,12 @@ export function StufeNull({ auswertung }: { auswertung: Auswertung }) {
           </li>
         ))}
       </ul>
-      <p className="max-w-[65ch] text-sm leading-relaxed text-foreground">
+      <p className="max-w-[60ch] text-sm leading-relaxed text-foreground">
         {stufeNull.erfuellt
           ? "Alle fünf Bedingungen sind erfüllt. In der Regel ist kein Sanitätsdienst vor Ort erforderlich. Das entbindet nicht von der Abstimmung mit der Gemeinde."
-          : stufeNull.unvollstaendig
-            ? "Noch nicht alle Angaben liegen vor. Ergänzen Sie die offenen Punkte in der Gegenprobe."
-            : "Mindestens eine Bedingung ist nicht erfüllt. Ein Sanitätsdienst ist vorzusehen."}
+          : stufeNull.kriterien.some((k) => k.erfuellt === false)
+            ? "Mindestens eine Bedingung ist nicht erfüllt. Ein Sanitätsdienst ist vorzusehen."
+            : "Noch nicht alle Angaben liegen vor. Ergänzen Sie die offenen Punkte in der Gegenprobe."}
       </p>
     </section>
   );
@@ -191,7 +193,7 @@ export function Gegenprobe({ auswertung }: { auswertung: Auswertung }) {
       <h3 id="gegenprobe-titel" className="text-base font-medium text-foreground">
         Gegenprobe nach dem Samariterbund
       </h3>
-      <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+      <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
         Die Richtlinie empfiehlt für kleinere Veranstaltungen ein zweites
         Verfahren, den Fragebogen aus dem Postendienstreglement des
         Schweizerischen Samariterbundes. Er zählt schlicht die Ja-Antworten.
@@ -213,13 +215,13 @@ export function Gegenprobe({ auswertung }: { auswertung: Auswertung }) {
       </dl>
 
       {!beantwortet ? (
-        <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+        <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
           Noch {ssb.offen} von {ssb.offen === 1 ? "einer Frage" : "den Fragen"}{" "}
           offen. Die Richtlinie verlangt, dass jede Zeile beantwortet wird, sonst
           hat die Gegenprobe keine Aussagekraft.
         </p>
       ) : widerspruch ? (
-        <p className="max-w-[65ch] text-sm leading-relaxed text-foreground">
+        <p className="max-w-[60ch] text-sm leading-relaxed text-foreground">
           Die beiden Verfahren kommen zu unterschiedlichen Ergebnissen: Maurer
           auf Stufe {maurer.stufe}, der Samariterbund-Fragebogen auf Stufe{" "}
           {ssb.stufe}. Das ist kein Fehler. Die Richtlinie hält fest, dass die
@@ -229,7 +231,7 @@ export function Gegenprobe({ auswertung }: { auswertung: Auswertung }) {
           höhere Stufe als Ausgangspunkt für das Gespräch.
         </p>
       ) : (
-        <p className="max-w-[65ch] text-sm leading-relaxed text-foreground">
+        <p className="max-w-[60ch] text-sm leading-relaxed text-foreground">
           Beide Verfahren kommen auf Stufe {ssb.stufe}. Das stützt das Ergebnis.
         </p>
       )}
@@ -303,9 +305,40 @@ export function Befund({ auswertung }: { auswertung: Auswertung }) {
           {formatPunkte(maurer.gesamt)} Punkte
         </p>
       </div>
-      <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+      <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
         Was dieses Ergebnis ist und was nicht, steht unter der Aufstellung.
       </p>
+    </div>
+  );
+}
+
+/* ─── Vom Ergebnis zur Anfrage ──────────────────────────────────────────── */
+
+/**
+ * Nimmt das Ergebnis mit ins Kontaktformular. Vorher führte der Weg dorthin in
+ * ein leeres Formular auf einer anderen Seite, und Stufe und Punkte mussten
+ * abgetippt werden. Die Startseite liest die Parameter beim Laden aus.
+ */
+export function AnfrageLink({ auswertung }: { auswertung: Auswertung }) {
+  const s = STUFEN[auswertung.stufe];
+  const q = new URLSearchParams({
+    leistung: "Sanitätskonzept",
+    stufe: String(auswertung.stufe),
+    titel: s.titel,
+    punkte: formatPunkte(auswertung.maurer.gesamt),
+  });
+  return (
+    <div className="space-y-3 border-y border-border py-6">
+      <p className="max-w-[60ch] text-sm leading-relaxed text-muted-foreground">
+        Sie brauchen daraus ein Konzept für die Gemeinde? Stufe und Punkte
+        wandern mit in die Anfrage, Sie müssen nichts abtippen.
+      </p>
+      <Button asChild size="lg">
+        <Link href={`/?${q.toString()}#kontakt`}>
+          Anfrage mit diesem Ergebnis stellen
+          <ArrowUpRight aria-hidden className="size-4" strokeWidth={1.75} />
+        </Link>
+      </Button>
     </div>
   );
 }

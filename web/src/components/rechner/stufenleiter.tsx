@@ -72,7 +72,10 @@ export function Stufenleiter({
   const angezeigt = STUFEN[stufe];
 
   return (
-    <div>
+    // `contents` auf kleinen Schirmen: Die Leiter klebt dann an der ganzen
+    // Formularspalte, nicht nur an diesem kurzen Kasten. Ab lg ist der Kasten
+    // wieder ein Block im aside, das als Ganzes klebt.
+    <div className="contents lg:block">
       {/* Auf kleinen Schirmen klebt nur die Leiter selbst oben, damit sie beim
           Ausfüllen sichtbar bleibt. Ab lg klebt die ganze Spalte. */}
       <div className="sticky top-0 z-20 -mx-4 space-y-3 border-b border-border bg-background px-4 py-3 sm:-mx-6 sm:px-6 lg:static lg:mx-0 lg:space-y-4 lg:border-b-0 lg:p-0">

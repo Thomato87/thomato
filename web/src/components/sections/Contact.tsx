@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -46,12 +46,42 @@ type FormState = "idle" | "loading" | "success" | "error";
 
 // ─── Component ───────────────────────────────────────────────────────
 export function Contact() {
+  // react-hook-form ändert Werte an React vorbei und ist mit dem React
+  // Compiler offiziell nicht getestet. Für dieses Formular bleibt die
+  // Memoisierung deshalb aus.
+  "use no memo";
   const [formState, setFormState] = useState<FormState>("idle");
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: { name: "", email: "", phone: "", service: "", message: "" },
   });
+
+  // Kommt jemand vom Rechner, steht das Ergebnis schon im Formular. Gelesen
+  // nach dem Laden aus der Adresse, damit die Seite statisch bleiben kann.
+  //
+  // Einen Tick verzögert: Im selben Durchgang wie das Einhängen registriert
+  // das Auswahlfeld sich noch und überschreibt einen sofort gesetzten Wert
+  // wieder mit leer. Der Textbereich hat eine echte DOM-Referenz und ist
+  // davon nicht betroffen, das Auswahlfeld nicht.
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const leistung = p.get("leistung");
+    if (!leistung) return;
+    const stufe = p.get("stufe");
+    const titel = p.get("titel");
+    const punkte = p.get("punkte");
+    const ergebnis = stufe
+      ? `Der Rechner ergibt Stufe ${stufe}${titel ? `, ${titel}` : ""}${punkte ? `, bei ${punkte} Risikopunkten` : ""}. Ich brauche dazu ein Sanitätskonzept für die Gemeinde.
+
+Anlass, Datum und Ort: `
+      : "";
+    const t = window.setTimeout(() => {
+      form.setValue("service", leistung, { shouldDirty: true });
+      form.setValue("message", ergebnis, { shouldDirty: true });
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, [form]);
 
   async function onSubmit(values: ContactFormValues) {
     setFormState("loading");
@@ -84,7 +114,7 @@ export function Contact() {
           </div>
 
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Schildern Sie mir Ihren Bedarf, ich melde mich innerhalb von 24 Stunden mit einer persönlichen Einschätzung.
+            Schildern Sie mir Ihren Bedarf, ich melde mich in der Regel am selben Werktag mit einer persönlichen Einschätzung.
           </p>
 
           <Separator />
@@ -98,7 +128,7 @@ export function Contact() {
               {brand.contact.email}
             </a>
             <a
-              href={`tel:${brand.contact.phone}`}
+              href={`tel:${brand.contact.phoneHref}`}
               className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <Phone className="h-4 w-4 shrink-0 text-brand" />
@@ -180,10 +210,15 @@ export function Contact() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="eyebrow text-xs">Leistung (optional)</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Wählen Sie eine Leistung" />
+                              {/* Der Text steht ausdrücklich drin: Radix zeigt einen gesetzten
+                                  Wert sonst erst, wenn die Liste einmal offen war, und die
+                                  Vorbelegung vom Rechner käme leer an. */}
+                              <SelectValue placeholder="Wählen Sie eine Leistung">
+                                {field.value || undefined}
+                              </SelectValue>
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>

@@ -32,7 +32,7 @@ export function Erklaerung() {
               {teil.absaetze.map((absatz, i) => (
                 <p
                   key={i}
-                  className="max-w-[68ch] text-base leading-relaxed text-muted-foreground"
+                  className="max-w-[60ch] text-base leading-relaxed text-muted-foreground"
                 >
                   {absatz}
                 </p>
@@ -66,7 +66,7 @@ export function HaeufigeFragen() {
                 strokeWidth={1.75}
               />
             </summary>
-            <p className="max-w-[68ch] pb-6 text-base leading-relaxed text-muted-foreground">
+            <p className="max-w-[60ch] pb-6 text-base leading-relaxed text-muted-foreground">
               {f.antwort}
             </p>
           </details>
@@ -94,7 +94,7 @@ export function Abschluss() {
           {rechner.abschluss.absaetze.map((absatz, i) => (
             <p
               key={i}
-              className="max-w-[68ch] text-base leading-relaxed text-muted-foreground"
+              className="max-w-[60ch] text-base leading-relaxed text-muted-foreground"
             >
               {absatz}
             </p>

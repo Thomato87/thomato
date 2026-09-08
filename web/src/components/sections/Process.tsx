@@ -18,7 +18,7 @@ export function Process() {
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground md:text-right">
-            Jede Anfrage wird einzeln geprüft. Ich melde mich in der Regel innerhalb von 24 Stunden.
+            Jede Anfrage wird einzeln geprüft. Ich melde mich in der Regel am selben Werktag.
           </p>
         </FadeIn>
 
