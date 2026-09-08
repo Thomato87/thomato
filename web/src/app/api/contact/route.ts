@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const data = contactSchema.parse(body);
 
-    await resend.emails.send({
+    const { error: versandFehler } = await resend.emails.send({
       // NOTE: thomato.ch must be verified in Resend (DNS records) before this
       // sender works. Until then the form will fail — see README / handover.
       from: "Thomato <noreply@thomato.ch>",
@@ -34,6 +34,9 @@ export async function POST(request: Request) {
         data.message,
       ].join("\n"),
     });
+    if (versandFehler) {
+      throw new Error(`Resend: ${versandFehler.message}`);
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {

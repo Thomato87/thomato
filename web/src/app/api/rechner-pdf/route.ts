@@ -70,7 +70,7 @@ export async function POST(request: Request) {
     // NOTE: thomato.ch muss in Resend verifiziert sein (DNS-Records), sonst
     // schlaegt der Versand von noreply@thomato.ch fehl. Gleiche Lage wie beim
     // Kontaktformular.
-    await resend.emails.send({
+    const { error: fehlerKunde } = await resend.emails.send({
       from: "Thomato <noreply@thomato.ch>",
       to: daten.email,
       replyTo: "info@thomato.ch",
@@ -95,9 +95,12 @@ export async function POST(request: Request) {
         .join("\n"),
       attachments: [anhang],
     });
+    if (fehlerKunde) {
+      throw new Error(`Resend: ${fehlerKunde.message}`);
+    }
 
     // Benachrichtigung an Thomato. Hier laufen die Adressen zusammen.
-    await resend.emails.send({
+    const { error: fehlerBenachrichtigung } = await resend.emails.send({
       from: "Thomato <noreply@thomato.ch>",
       to: "info@thomato.ch",
       replyTo: daten.email,
@@ -115,6 +118,9 @@ export async function POST(request: Request) {
       ].join("\n"),
       attachments: [anhang],
     });
+    if (fehlerBenachrichtigung) {
+      throw new Error(`Resend: ${fehlerBenachrichtigung.message}`);
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
