@@ -22,6 +22,10 @@ const safetyOffers = [
       "Klare Liste der Mittel, die Sie bestellen müssen",
       "Grundlage für Ihr Gesuch um die Anlassbewilligung",
     ],
+    link: {
+      href: "/sanitaetsdienst-rechner",
+      label: "Bedarf selbst berechnen",
+    },
   },
   {
     id: "02",
@@ -35,10 +39,6 @@ const safetyOffers = [
       "Abläufe für den Ernstfall, nachvollziehbar dokumentiert",
       "Ohne Textbausteine, auf Ihre Lage geschrieben",
     ],
-    link: {
-      href: "/sanitaetsdienst-rechner",
-      label: "Bedarf selbst berechnen",
-    },
   },
   {
     id: "03",
