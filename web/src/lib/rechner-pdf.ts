@@ -82,41 +82,46 @@ const BILDMARKE = {
 } as const;
 
 /**
- * Legt den Spross gross und blass in den Seitenhintergrund.
+ * Legt die Bildmarke gross und blass in die rechte untere Ecke.
  *
- * Muss gezeichnet werden, **bevor** Inhalt auf die Seite kommt: pdf-lib hängt
- * Zeichenbefehle in Aufrufreihenfolge an, es gibt kein Voranstellen. Deshalb
- * ruft `Satz` das hier beim Anlegen jeder Seite auf und nicht am Schluss.
+ * Zwei Dinge, die hier nicht offensichtlich sind:
+ *
+ * Erstens wird die Marke als **ein** Pfad in **einem** Strichgang gezeichnet.
+ * Zeichnet man Kreis und Sprossen einzeln, addiert sich die Deckkraft dort, wo
+ * sie sich überlagern, und der Stielansatz wird sichtbar dunkler als der Rest.
+ * Ein einziger Strich färbt jede Fläche genau einmal.
+ *
+ * Zweitens muss der Aufruf erfolgen, **bevor** Inhalt auf die Seite kommt:
+ * pdf-lib hängt Zeichenbefehle in Aufrufreihenfolge an, es gibt kein
+ * Voranstellen. Deshalb ruft `Satz` das beim Anlegen jeder Seite auf.
  */
 function wasserzeichen(seite: PDFPage) {
   const m = BILDMARKE;
   const k = 9.1;
-  // Die Marke misst in ihrem Koordinatensystem 41 mal 57 Einheiten, Strichstärke
-  // eingerechnet. Ihre Mitte liegt bei (32, 33). Die wird auf die Seitenmitte
-  // gelegt, leicht über der Höhenmitte, damit unten Luft für den Fuss bleibt.
-  const ox = A4.breite / 2 - 32 * k;
-  const oy = 430 + 33 * k;
-  const px = (sx: number) => ox + sx * k;
-  const py = (sy: number) => oy - sy * k;
+  const { cx, cy, r } = m.frucht;
 
-  seite.drawCircle({
-    x: px(m.frucht.cx),
-    y: py(m.frucht.cy),
-    size: m.frucht.r * k,
-    borderColor: TINTE,
-    borderWidth: m.frucht.staerke * k,
-    borderOpacity: 0.05,
+  // Die Frucht als zwei Halbbögen, damit sie Teil desselben Pfades bleibt.
+  const pfad = [
+    `M${cx - r} ${cy}A${r} ${r} 0 1 0 ${cx + r} ${cy}A${r} ${r} 0 1 0 ${cx - r} ${cy}`,
+    ...m.sprossen.map(([ax, ay, bx, by]) => `M${ax} ${ay}L${bx} ${by}`),
+  ].join("");
+
+  // Der Mittelpunkt der Frucht liegt genau auf der Ecke. Sichtbar bleibt damit
+  // ein Viertel des Kreises, und vom Stiel, der senkrecht darüber steht, die
+  // linke Hälfte. `drawSvgPath` zählt y nach unten, passend zum Quelltext.
+  seite.drawSvgPath(pfad, {
+    x: A4.breite - cx * k,
+    y: cy * k,
+    scale: k,
+    borderColor: MARKE,
+    // Achtung: pdf-lib setzt die Strichstärke erst nach der Skalierung, sie
+    // zählt also in Pfad-Einheiten. Hier nicht zusätzlich mit k multiplizieren,
+    // sonst wird der Strich um das Quadrat des Faktors zu dick und die Frucht
+    // erscheint als gefüllte Scheibe.
+    borderWidth: m.sprossenStaerke,
+    borderOpacity: 0.08,
+    borderLineCap: LineCapStyle.Round,
   });
-  for (const [ax, ay, bx, by] of m.sprossen) {
-    seite.drawLine({
-      start: { x: px(ax), y: py(ay) },
-      end: { x: px(bx), y: py(by) },
-      thickness: m.sprossenStaerke * k,
-      color: MARKE,
-      opacity: 0.06,
-      lineCap: LineCapStyle.Round,
-    });
-  }
 }
 
 type Schriften = { leicht: PDFFont; normal: PDFFont };
