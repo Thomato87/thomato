@@ -108,19 +108,6 @@ const digitalOffers = [
       "Eine feste Ansprechperson statt Ticketsystem",
     ],
   },
-  {
-    id: "04",
-    title: "Datenschutz von Anfang an",
-    subtitle: "Pflicht, nicht Kür",
-    description:
-      "Datenschutzerklärung passend zu den tatsächlich eingesetzten Diensten, Auftragsbearbeitungsvertrag und Hosting in der Schweiz. Bei Gesundheitsdaten ist das Pflicht, nicht Kür.",
-    deliverables: [
-      "Datenschutzerklärung, die zu den eingesetzten Diensten passt",
-      "Auftragsbearbeitungsvertrag für die Zusammenarbeit",
-      "Hosting in der Schweiz",
-      "Verzeichnis der Bearbeitungstätigkeiten als Grundlage",
-    ],
-  },
 ] as const;
 
 export const brand = {
@@ -323,7 +310,6 @@ export const brand = {
         "Website",
         "Fachanwendung",
         "Betrieb und Wartung",
-        "Datenschutz",
       ],
     },
     {
